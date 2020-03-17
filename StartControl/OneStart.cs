@@ -16,6 +16,7 @@ namespace StartControl
             if (!ifexist)
             {
                 MessageBox.Show("程序运行中！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mutex.Close();
                 Thread.CurrentThread.Abort();
             }
         }

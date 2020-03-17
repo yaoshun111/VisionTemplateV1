@@ -47,6 +47,7 @@
             this.Controls.Add(this.txtProcessDisp);
             this.Name = "NewLogHelper";
             this.Size = new System.Drawing.Size(399, 334);
+            this.Load += new System.EventHandler(this.NewLogHelper_Load);
             this.ResumeLayout(false);
 
         }

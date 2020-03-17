@@ -12,11 +12,17 @@ using System.Threading;
 
 namespace FastCtr
 {
+    public enum MsgType
+    {
+        Alarm,
+        Info,
+    }
+
     public partial class NewLogHelper : UserControl
     {
         Log_Helper log_helper = new Log_Helper("");
-        // string path = new DirectoryInfo("../../../Logs/").FullName;
-        string m_filepath = "log";
+        string m_filepath = new DirectoryInfo("../../../Logs/").FullName;
+        //string m_filepath = "log";
         [Category("新增")]
         public string FilePath
         {
@@ -28,11 +34,6 @@ namespace FastCtr
             set
             {
                 m_filepath = value;
-                if (Application.StartupPath.Contains("Debug"))
-                {
-                    log_helper = new Log_Helper(m_filepath);
-                    log_helper.eventDispProcess += new Log_Helper.delegateDispProcess(log_helper_eventDispProcess);
-                }
             }
         }
 
@@ -44,13 +45,17 @@ namespace FastCtr
             }
         }
 
-
-
+        public void Log(string data, MsgType msgType, bool isShown)
+        {
+            log_helper.DispProcess(data, msgType.ToString(), isShown);
+        }
+        
         public NewLogHelper()
         {
             InitializeComponent();
-      
-
+            log_helper = new Log_Helper(m_filepath);
+            log_helper.eventDispProcess += new Log_Helper.delegateDispProcess(log_helper_eventDispProcess);
+            this.Dock = DockStyle.Fill;
         }
 
         private void log_helper_eventDispProcess(string msg, Color foreColor)
@@ -63,6 +68,7 @@ namespace FastCtr
                     txtProcessDisp.Focus();
                     txtProcessDisp.SelectionColor = ForeColor;
                     txtProcessDisp.AppendText(msg);
+
                     //滚动条到最下面
                     txtProcessDisp.Select(txtProcessDisp.Text.Length, 0);
                     txtProcessDisp.ScrollToCaret();
@@ -90,5 +96,9 @@ namespace FastCtr
             }
         }
 
+        private void NewLogHelper_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

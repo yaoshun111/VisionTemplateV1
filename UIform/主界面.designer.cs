@@ -32,8 +32,10 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.清除所有ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.加载最后一次数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.hWindowControl1 = new HalconDotNet.HWindowControl();
             this.contextMenuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -44,6 +46,7 @@
             this.加载最后一次数据ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(201, 48);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // 清除所有ToolStripMenuItem
             // 
@@ -51,6 +54,7 @@
             this.清除所有ToolStripMenuItem.Name = "清除所有ToolStripMenuItem";
             this.清除所有ToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.清除所有ToolStripMenuItem.Text = "清除所有(表格和曲线）";
+            this.清除所有ToolStripMenuItem.Click += new System.EventHandler(this.清除所有ToolStripMenuItem_Click);
             // 
             // 加载最后一次数据ToolStripMenuItem
             // 
@@ -58,27 +62,44 @@
             this.加载最后一次数据ToolStripMenuItem.Name = "加载最后一次数据ToolStripMenuItem";
             this.加载最后一次数据ToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.加载最后一次数据ToolStripMenuItem.Text = "加载最后一次表格数据";
+            this.加载最后一次数据ToolStripMenuItem.Click += new System.EventHandler(this.加载最后一次数据ToolStripMenuItem_Click);
             // 
-            // panel1
+            // groupBox1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Location = new System.Drawing.Point(132, 88);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 396);
-            this.panel1.TabIndex = 1;
+            this.groupBox1.Controls.Add(this.hWindowControl1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(653, 511);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "图像显示";
+            // 
+            // hWindowControl1
+            // 
+            this.hWindowControl1.BackColor = System.Drawing.Color.Black;
+            this.hWindowControl1.BorderColor = System.Drawing.Color.Black;
+            this.hWindowControl1.ImagePart = new System.Drawing.Rectangle(0, 0, 640, 480);
+            this.hWindowControl1.Location = new System.Drawing.Point(6, 20);
+            this.hWindowControl1.Name = "hWindowControl1";
+            this.hWindowControl1.Size = new System.Drawing.Size(640, 480);
+            this.hWindowControl1.TabIndex = 0;
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(640, 480);
             // 
             // 主界面
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.Beige;
-            this.ClientSize = new System.Drawing.Size(717, 588);
-            this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(679, 538);
+            this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "主界面";
             this.Text = "主界面";
             this.Load += new System.EventHandler(this.主界面_Load);
+            this.Shown += new System.EventHandler(this.主界面_Shown);
+            this.SizeChanged += new System.EventHandler(this.主界面_SizeChanged);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -87,6 +108,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 清除所有ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 加载最后一次数据ToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private HalconDotNet.HWindowControl hWindowControl1;
     }
 }

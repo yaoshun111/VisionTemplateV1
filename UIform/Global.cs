@@ -9,12 +9,15 @@ namespace UIform
 {
     public  class Global
     {
-        public static SettingForm setting = new SettingForm();
+        public static SettingForm setting = SettingForm.GetSingle();
         public static LogIn login = new LogIn();
         public static ProductType product = new ProductType();
-        public static 主界面 mainform = new 主界面();
+        public static 主界面 mainform =主界面.GetSingle();
+       
         public static DataForm dataForm = new DataForm();
         public static NewLogHelper loghelper = new NewLogHelper();
+
+      
     }
 }
        

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2369500C-FA86-4DB8-8966-642EDE9B44C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FastCtr</RootNamespace>
+    <AssemblyName>FastCtr</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CIPCompolet, Version=1.3.1.0, Culture=neutral, PublicKeyToken=f3505d5782c23c5d">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\OMRON\CX-Compolet\assembly\CIPCompolet.dll</HintPath>
+    </Reference>
+    <Reference Include="HslCommunication">
+      <HintPath>..\dll\HslCommunication.6.2.2\lib\net35\HslCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ANDweigh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ANDweigh.Designer.cs">
+      <DependentUpon>ANDweigh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewPanel.Designer.cs">
+      <DependentUpon>NewPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CpkBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CpkBox.Designer.cs">
+      <DependentUpon>CpkBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CPKDisplayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CPKDisplayControl.Designer.cs">
+      <DependentUpon>CPKDisplayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExpShow.Designer.cs">
+      <DependentUpon>ExpShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log_Helper.cs" />
+    <Compile Include="MenuButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuButton.designer.cs">
+      <DependentUpon>MenuButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewLogHelper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewLogHelper.Designer.cs">
+      <DependentUpon>NewLogHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewSerialPort.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewSerialPort.Designer.cs">
+      <DependentUpon>NewSerialPort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewTCP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewTCP.Designer.cs">
+      <DependentUpon>NewTCP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewUDP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewUDP.Designer.cs">
+      <DependentUpon>NewUDP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OmroPLC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OmroPLC.Designer.cs">
+      <DependentUpon>OmroPLC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OmroPLCvar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="userChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userChart.designer.cs">
+      <DependentUpon>userChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VariablesCtr.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VariablesCtr.designer.cs">
+      <DependentUpon>VariablesCtr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VarStructure.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ANDweigh.resx">
+      <DependentUpon>ANDweigh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CpkBox.resx">
+      <DependentUpon>CpkBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CPKDisplayControl.resx">
+      <DependentUpon>CPKDisplayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpShow.resx">
+      <DependentUpon>ExpShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuButton.resx">
+      <DependentUpon>MenuButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewLogHelper.resx">
+      <DependentUpon>NewLogHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewSerialPort.resx">
+      <DependentUpon>NewSerialPort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewTCP.resx">
+      <DependentUpon>NewTCP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewUDP.resx">
+      <DependentUpon>NewUDP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OmroPLC.resx">
+      <DependentUpon>OmroPLC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userChart.resx">
+      <DependentUpon>userChart.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FastData\FastData.csproj">
+      <Project>{038a20fe-86d3-474e-9a3e-adfcfb1f272e}</Project>
+      <Name>FastData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

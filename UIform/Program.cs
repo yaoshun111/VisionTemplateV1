@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StartControl;
 
 namespace UIform
 {
@@ -12,17 +13,13 @@ namespace UIform
         /// 应用程序的主入口点。
         /// </summary>
         /// 
-
-        public static FormMain FormMainWin;
         [STAThread]
         static void Main()
         {
-            
+            StartControl.OneStart.Check("shijue");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            FormMainWin = new FormMain();
-            Application.Run(FormMainWin);
+            Application.Run(new FormMain());
         }
     }
 }

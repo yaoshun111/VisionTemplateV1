@@ -12,9 +12,11 @@ using System.Threading;
 using System.IO;
 namespace UIform
 {
+   
     public partial class FormMain : Form
     {
         StartControl.Welcom wel = new StartControl.Welcom();
+        Global g = new Global();
 
         public FormMain()
         {
@@ -31,17 +33,30 @@ namespace UIform
 
         private void button3_Click(object sender, EventArgs e)
         {
+            newPanel1.Show(Global.setting);
 
+        }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
 
+            newPanel1.Show(Global.mainform);
 
+        }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            newPanel1.Show(Global.dataForm);
+        }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            newPanel1.Show(Global.login);
+        }
 
-
-
-
-
+        private void button10_Click(object sender, EventArgs e)
+        {
+            newPanel1.Show(Global.product);
         }
     }
 }

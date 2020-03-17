@@ -9,18 +9,14 @@ namespace StartControl
 {
     public class OneStart
     {
-        public bool Check()
+        public static void Check(string flag)
         {
             bool ifexist = false;
-            Mutex mutex = new Mutex(true, "mycode", out ifexist);
+            Mutex mutex = new Mutex(true, flag, out ifexist);
             if (!ifexist)
             {
-                MessageBox.Show("程序运行中！", "提示",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return false;
-            }
-            else
-            {
-                return true;
+                MessageBox.Show("程序运行中！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Thread.CurrentThread.Abort();
             }
         }
     }

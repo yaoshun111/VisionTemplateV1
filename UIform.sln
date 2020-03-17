@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIform", "UIform\UIform.csproj", "{E2825D76-CE9C-4590-8D34-EE80EFCC1BE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartControl", "StartControl\StartControl.csproj", "{7D45884D-CC94-418D-987B-81A25086939A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastCtr", "FastCtr\FastCtr.csproj", "{2369500C-FA86-4DB8-8966-642EDE9B44C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastData", "FastData\FastData.csproj", "{D496620B-1914-4416-B1F0-EAE2F270DD43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,8 +33,27 @@ Global
 		{7D45884D-CC94-418D-987B-81A25086939A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D45884D-CC94-418D-987B-81A25086939A}.Release|x64.ActiveCfg = Release|x64
 		{7D45884D-CC94-418D-987B-81A25086939A}.Release|x64.Build.0 = Release|x64
+		{2369500C-FA86-4DB8-8966-642EDE9B44C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2369500C-FA86-4DB8-8966-642EDE9B44C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2369500C-FA86-4DB8-8966-642EDE9B44C9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2369500C-FA86-4DB8-8966-642EDE9B44C9}.Debug|x64.Build.0 = Debug|Any CPU
+		{2369500C-FA86-4DB8-8966-642EDE9B44C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2369500C-FA86-4DB8-8966-642EDE9B44C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2369500C-FA86-4DB8-8966-642EDE9B44C9}.Release|x64.ActiveCfg = Release|Any CPU
+		{2369500C-FA86-4DB8-8966-642EDE9B44C9}.Release|x64.Build.0 = Release|Any CPU
+		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Debug|x64.Build.0 = Debug|Any CPU
+		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Release|x64.ActiveCfg = Release|Any CPU
+		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {708CF903-276D-4D72-8975-6724FB57F2C7}
 	EndGlobalSection
 EndGlobal

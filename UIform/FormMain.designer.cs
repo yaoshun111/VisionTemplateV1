@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@
             this.label33 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.newPanel1 = new FastCtr.NewPanel(this.components);
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,17 +62,16 @@
             this.label49 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -213,7 +214,7 @@
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.Gray;
-            this.splitContainer2.Panel1.Controls.Add(this.label4);
+            this.splitContainer2.Panel1.Controls.Add(this.newPanel1);
             // 
             // splitContainer2.Panel2
             // 
@@ -224,6 +225,14 @@
             this.splitContainer2.SplitterDistance = 466;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // newPanel1
+            // 
+            this.newPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newPanel1.Location = new System.Drawing.Point(0, 0);
+            this.newPanel1.Name = "newPanel1";
+            this.newPanel1.Size = new System.Drawing.Size(899, 464);
+            this.newPanel1.TabIndex = 0;
             // 
             // listView1
             // 
@@ -438,7 +447,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(9, 17);
+            this.label12.Location = new System.Drawing.Point(4, 21);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 19);
             this.label12.TabIndex = 39;
@@ -455,7 +464,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 39);
+            this.textBox1.Location = new System.Drawing.Point(75, 17);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(189, 21);
             this.textBox1.TabIndex = 58;
@@ -494,47 +503,6 @@
             this.label34.TabIndex = 41;
             this.label34.Text = " 用 户";
             // 
-            // button8
-            // 
-            this.button8.BackgroundImage = global::UIform.Properties.Resources.home;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.Location = new System.Drawing.Point(4, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(72, 67);
-            this.button8.TabIndex = 46;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::UIform.Properties.Resources.setting;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(82, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 67);
-            this.button3.TabIndex = 47;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::UIform.Properties.Resources.chart;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Location = new System.Drawing.Point(160, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(72, 67);
-            this.button5.TabIndex = 48;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.BackgroundImage = global::UIform.Properties.Resources.user;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.Location = new System.Drawing.Point(238, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(82, 67);
-            this.button6.TabIndex = 49;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -548,50 +516,6 @@
             this.label2.TabIndex = 50;
             this.label2.Text = "MTW-5视觉控制系统";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button7
-            // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.BackgroundImage = global::UIform.Properties.Resources.start;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button7.Location = new System.Drawing.Point(866, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(71, 67);
-            this.button7.TabIndex = 51;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.BackgroundImage = global::UIform.Properties.Resources.stop;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button9.Location = new System.Drawing.Point(943, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 67);
-            this.button9.TabIndex = 52;
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button10.BackgroundImage = global::UIform.Properties.Resources.timg;
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button10.Location = new System.Drawing.Point(1024, 4);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(82, 67);
-            this.button10.TabIndex = 53;
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button11.BackgroundImage = global::UIform.Properties.Resources.OpenImage;
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button11.Location = new System.Drawing.Point(1112, 4);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(80, 67);
-            this.button11.TabIndex = 54;
-            this.button11.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -620,14 +544,94 @@
             this.panel1.Size = new System.Drawing.Size(1195, 96);
             this.panel1.TabIndex = 27;
             // 
-            // label4
+            // button6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(331, 210);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "label4";
+            this.button6.BackgroundImage = global::UIform.Properties.Resources.user;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.Location = new System.Drawing.Point(238, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(82, 67);
+            this.button6.TabIndex = 49;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackgroundImage = global::UIform.Properties.Resources.home;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.Location = new System.Drawing.Point(4, 3);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(72, 67);
+            this.button8.TabIndex = 46;
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = global::UIform.Properties.Resources.chart;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Location = new System.Drawing.Point(160, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(72, 67);
+            this.button5.TabIndex = 48;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.BackgroundImage = global::UIform.Properties.Resources.start;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7.Location = new System.Drawing.Point(866, 3);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(71, 67);
+            this.button7.TabIndex = 51;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::UIform.Properties.Resources.setting;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Location = new System.Drawing.Point(82, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(72, 67);
+            this.button3.TabIndex = 47;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button11
+            // 
+            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button11.BackgroundImage = global::UIform.Properties.Resources.OpenImage;
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button11.Location = new System.Drawing.Point(1112, 4);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(80, 67);
+            this.button11.TabIndex = 54;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.BackgroundImage = global::UIform.Properties.Resources.stop;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button9.Location = new System.Drawing.Point(943, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 67);
+            this.button9.TabIndex = 52;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.BackgroundImage = global::UIform.Properties.Resources.timg;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button10.Location = new System.Drawing.Point(1024, 4);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(82, 67);
+            this.button10.TabIndex = 53;
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // FormMain
             // 
@@ -648,7 +652,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -708,7 +711,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
+        private FastCtr.NewPanel newPanel1;
     }
 }
 

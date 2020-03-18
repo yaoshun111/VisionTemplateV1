@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>global tuple ExceptionMessage</l>
+<l>global tuple TaskWhile</l>
+<l>global tuple Id</l>
+<l>global tuple IsOK</l>
+<l>global object Image</l>
+<l>IsOK:=[-1,-1,-1,-1,-1]</l>
+<l>TaskWhile:=1</l>
+<l>Id:=0</l>
+<l>ExceptionMessage:='相机初始化'</l>
+<l>while(TaskWhile)</l>
+<l>    wait_seconds(0.02)</l>
+<l>    switch(Id)</l>
+<l>    case 1:</l>
+<l>        Id:=0</l>
+<l>        try</l>
+<l>            open_framegrabber ('DirectShow', 1, 1, 0, 0, 0, 0, 'default', 8, 'rgb', -1, 'false', 'default', '[0] EasyCamera', 0, -1, AcqHandle)</l>
+<l>            IsOK[1]:=1</l>
+<l>            IsOK[4]:=0</l>
+<l>            ExceptionMessage:='相机已打开'</l>
+<l>        catch (Exception)</l>
+<l>            ExceptionMessage:='打开相机失败！--'+Exception</l>
+<l>            *TaskWhile:=0</l>
+<l>            IsOK[1]:=0</l>
+<l>        endtry</l>
+<l>        break</l>
+<l>    case 2:</l>
+<l>        Id:=0</l>
+<l>        try</l>
+<l>            grab_image (Image, AcqHandle)</l>
+<l>            dev_display(Image)</l>
+<l>            IsOK[2]:=1</l>
+<l>            ExceptionMessage:='单张采集OK'</l>
+<l>        catch (Exception)</l>
+<l>            ExceptionMessage:='单张拍照失败！--'+Exception</l>
+<l>            *TaskWhile:=0</l>
+<l>            IsOK[2]:=0</l>
+<l>        endtry</l>
+<l>        break</l>
+<l>    case 3:</l>
+<l>            try</l>
+<l>                grab_image (Image, AcqHandle)</l>
+<l>                dev_display(Image)</l>
+<l>                IsOK[3]:=1</l>
+<l>                ExceptionMessage:='连续采集OK'</l>
+<l>            catch (Exception)</l>
+<l>                ExceptionMessage:='连续拍照失败！--'+Exception</l>
+<l>                *TaskWhile:=0</l>
+<l>                IsOK[3]:=0</l>
+<l>            endtry</l>
+<l>        break</l>
+<l>    case 4:</l>
+<l>        Id:=0</l>
+<l>        try</l>
+<l>            close_framegrabber (AcqHandle)</l>
+<l>            IsOK[4]:=1</l>
+<l>            IsOK[1]:=0</l>
+<l>            ExceptionMessage:='相机已关闭'</l>
+<l>        catch (Exception)</l>
+<l>             ExceptionMessage:='关闭相机失败！--'+Exception</l>
+<l>             *TaskWhile:=0</l>
+<l>             IsOK[4]:=0</l>
+<l>        endtry</l>
+<l>        break</l>
+<l>    endswitch</l>
+<l>endwhile</l>
+<l>try</l>
+<l>    close_framegrabber (AcqHandle)</l>
+<l>catch (Exception)</l>
+<l>endtry</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

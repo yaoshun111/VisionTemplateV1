@@ -25,7 +25,6 @@ namespace FastCtr
 
         public void Show(Form ctr)
         {
-
             this.Controls.Clear();
             ctr.FormBorderStyle = FormBorderStyle.None;
             ctr.Dock = DockStyle.Fill;

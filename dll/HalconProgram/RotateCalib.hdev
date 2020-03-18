@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<procedure name="main">
+<interface/>
+<body>
+<c>*********输入变量******************</c>
+<l>global tuple ImageFilePath</l>
+<l>global tuple TemplatePath</l>
+<c>***********************************</c>
+<l>tuple_concat(Row, Column, Row)</l>
+<l>dev_get_window (WindowHandle)</l>
+<l>list_image_files (ImageFilePath, 'default', 'files', ImageFiles)</l>
+<l>read_image (Template, TemplatePath)</l>
+<l>dev_display (Template)</l>
+<l>create_ncc_model(Template, 'auto', -0.39, 0.79, 'auto', 'use_polarity', ModelID)</l>
+<l>for Index := 0 to |ImageFiles|-1 by 1</l>
+<l>    read_image(pic, ImageFiles)</l>
+<l>    find_ncc_model(pic, ModelID, -0.39, 0.79, 0.8, 1, 0.5, 'true', 0, _Row, _Column, _Angle, _Score)</l>
+<l>    tuple_concat(Row, _Row, Row)</l>
+<l>    tuple_concat(Column, _Column, Column)</l>
+<l>    tuple_concat(Angle, _Angle, Angle)</l>
+<l>    tuple_concat(Score, _Score, Score)</l>
+<l>endfor</l>
+<l>gen_contour_polygon_xld (Contour, Row, Column)</l>
+<l>fit_circle_contour_xld (Contour, 'algebraic', -1, 0, 0, 3, 2, Rowresult, Columnresult, Radiuresult, StartPhi, EndPhi, PointOrder)</l>
+<c>*********输出变量******************</c>
+<l>RowTol:=Rowresult</l>
+<l>ColumnTol:=Rowresult</l>
+<l>RadiuTol:=Rowresult</l>
+<c>***********************************</c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<procedure name="main">
+<interface/>
+<body>
+<c>*************输入变量******************</c>
+<l>global tuple TemplateOriginPath</l>
+<l>global tuple TemplateSavePath</l>
+<l>global tuple StartDraw</l>
+<l>global tuple StopTask</l>
+<c>**************输出变量*****************</c>
+<l>global object ContempPic</l>
+<c>***************************************</c>
+<l>StartDraw:=false</l>
+<l>StopTask:=true</l>
+<l>dev_get_window(WindowHandle)</l>
+<l>read_image (ContempPic, TemplateOriginPath)</l>
+<l>dev_display(ContempPic)</l>
+<l>set_display_font(WindowHandle, 30, 'mono', 'true', 'false')</l>
+<l>dev_disp_text ('请放大到特征位置', 'image', 0,0, 'red', 'box', 'false')</l>
+<l>while(StopTask)</l>
+<l>    wait_seconds(0.01)</l>
+<l>    if(StartDraw)</l>
+<l>        StartDraw:=false</l>
+<l>        dev_set_color ('red')</l>
+<l>        set_display_font(WindowHandle, 30, 'mono', 'true', 'false')</l>
+<l>         dev_display(ContempPic)</l>
+<l>        dev_disp_text('请画特征模板', 'window', 'top', 'left', 'black', [], [])</l>
+<c>       </c>
+<l>        dev_set_color ('blue')</l>
+<l>        draw_rectangle2 (WindowHandle, Row, Column, Phi, Length1, Length2)</l>
+<l>        dev_set_color ('green')</l>
+<l>        gen_rectangle2(Rectangle, Row, Column, Phi, Length1, Length2)</l>
+<l>        dev_display(Rectangle)</l>
+<l>        reduce_domain (ContempPic, Rectangle, Template)</l>
+<l>        crop_domain (Template, ContempPic)</l>
+<l>        write_image (ContempPic, 'tiff', 0, TemplateSavePath)</l>
+<l>         dev_set_color ('red')</l>
+<l>        set_display_font(WindowHandle, 30, 'mono', 'true', 'false')</l>
+<l>        dev_clear_window()</l>
+<l>         dev_display(ContempPic)</l>
+<l>        dev_disp_text('模板已存储', 'window', 'top', 'left', 'black', [], [])</l>
+<l>        break</l>
+<l>    endif</l>
+<l>endwhile</l>
+<l>StopTask:=0</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

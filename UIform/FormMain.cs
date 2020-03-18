@@ -34,13 +34,9 @@ namespace UIform
         /// </summary>
         public bool m_bCamOpenOK = false;
 
-
-
-
         StartControl.Welcom wel = new StartControl.Welcom();
 
-        Global g = new Global();
-
+        //   Global g = new Global();
 
         Timer OpacyTimer = new Timer();
 
@@ -55,7 +51,6 @@ namespace UIform
             OpacyTimer.Start();
 
             Global.mainform.MySendMsgDelegate += this.SendMsg;
-
 
         }
         private void OpacyTimer_Tick(object sender, EventArgs e)
@@ -75,7 +70,7 @@ namespace UIform
         private void FormMain_Load(object sender, EventArgs e)
         {
             splitContainer2.Panel2.Controls.Add(Global.loghelper);//添加日志窗口到窗体
-            Thread.Sleep(1900);
+            Thread.Sleep(900);
             wel.Stop();
 
             #region 加载料号，得到当前常用料号。
@@ -90,10 +85,6 @@ namespace UIform
                 CommonClass.hv_AcqHandle = hv_AcqHandle;
             }
             #endregion
-
-            //  
-            //界面初始化结束后
-            //自动程序开始启动
 
         }
         private void ConnectDivice()
@@ -150,7 +141,7 @@ namespace UIform
 
             if (m_bCamOpenOK == true)
             {
-                Global.setting.m_bCamOpenOk = true;            
+                Global.setting.m_bCamOpenOk = true;
             }
             else
             {
@@ -181,7 +172,7 @@ namespace UIform
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
-
+            this.TopMost = true;
         }
 
         public void SendMsg(HTuple hv_Msg)

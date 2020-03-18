@@ -24,8 +24,6 @@ namespace StartControl
             this.loadingCircle1.NumberSpoke = 15;
             this.loadingCircle1.SpokeThickness = 6;
             this.loadingCircle1.Color = Color.Green;
-
-
         }
 
         private void loading_Load(object sender, EventArgs e)
@@ -63,8 +61,6 @@ namespace StartControl
             {
                 this.Close();
             }));
-
-
         }
         int a = 0;
         private void timer2_Tick(object sender, EventArgs e)

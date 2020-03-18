@@ -12,7 +12,6 @@ using System.IO;
 using HalconDotNet;
 
 
-
 namespace UIform
 {
     public partial class SettingForm : Form
@@ -24,6 +23,16 @@ namespace UIform
 
         HTuple hv_Exposure;
         private int m_iOriFormWidth = 0, m_iOriFormHeight = 0;
+
+        #region Halcon 引擎
+        HDevEngine m_HDevEngine = new HDevEngine();
+        HDevProcedure m_CamProcedure = new HDevProcedure();
+        HDevProcedureCall m_CamProcedureCall;
+
+        string m_sHDevEnginePath = string.Empty;
+
+        #endregion
+
 
         public string ConfigPath = Application.StartupPath + "\\Config";
         public bool m_bCamOpenOk { get; set; }
@@ -42,6 +51,7 @@ namespace UIform
 
             HOperatorSet.SetColor(hv_hWindowHandle, "red");
 
+            m_sHDevEnginePath = Global.di + "\\HE";
             ListControl(this);
             m_iOriFormWidth = this.Width;
             m_iOriFormHeight = this.Height;
@@ -123,6 +133,21 @@ namespace UIform
             IniAPI.INIWriteValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "ExposureMax", StrexposureMax);
             IniAPI.INIWriteValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "GainMax", StrgainMax);
 
+            #endregion
+
+            #region 加载hdvp文件
+            try
+            {
+                m_HDevEngine.SetProcedurePath(m_sHDevEnginePath);
+                m_CamProcedure = new HDevProcedure("_829test");
+                m_CamProcedureCall = m_CamProcedure.CreateCall();
+
+            }
+            catch (Exception df)
+            {
+                string s = "a";
+                // Fun_Add_lb_Info("文件读取失败!" + df.Message);
+            }
             #endregion
 
         }
@@ -431,6 +456,16 @@ namespace UIform
                 MessageBox.Show("FlushWindow:" + ex.Message);
             }
 
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            HObject ho_ObjectOut;
+
+            HOperatorSet.GenEmptyObj(out ho_ObjectOut);
+            ho_ObjectOut.Dispose();
+            CommonClass.Cam1Procedure(m_CamProcedureCall, hv_hWindowHandle, ho_Image, out ho_ObjectOut);
+            HOperatorSet.DispObj(ho_ObjectOut, hv_hWindowHandle);
         }
 
         private void SettingForm_SizeChanged(object sender, EventArgs e)

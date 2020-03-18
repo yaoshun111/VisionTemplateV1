@@ -23,8 +23,6 @@ namespace UIform
 
         string m_sHDevEnginePath = string.Empty;
 
-
-
         #endregion
 
         private int m_iOriFormWidth = 0, m_iOriFormHeight = 0;
@@ -70,7 +68,6 @@ namespace UIform
                 Form1Single = new 主界面();
             }
             return Form1Single;
-
         }
 
 

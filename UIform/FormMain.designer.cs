@@ -39,6 +39,7 @@
             this.label33 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.newPanel1 = new FastCtr.NewPanel(this.components);
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button4 = new System.Windows.Forms.Button();
@@ -57,16 +58,15 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.Btn_Admin = new System.Windows.Forms.Button();
+            this.Btn_Home = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Btn_Start = new System.Windows.Forms.Button();
+            this.Btn_Set = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.Btn_Stop = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.newPanel1 = new FastCtr.NewPanel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -218,6 +218,14 @@
             this.splitContainer2.SplitterDistance = 489;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // newPanel1
+            // 
+            this.newPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newPanel1.Location = new System.Drawing.Point(0, 0);
+            this.newPanel1.Name = "newPanel1";
+            this.newPanel1.Size = new System.Drawing.Size(899, 487);
+            this.newPanel1.TabIndex = 0;
             // 
             // splitContainer3
             // 
@@ -386,7 +394,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(13, 19);
+            this.label12.Location = new System.Drawing.Point(13, 21);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 19);
             this.label12.TabIndex = 39;
@@ -466,15 +474,15 @@
             this.panel1.Controls.Add(this.label26);
             this.panel1.Controls.Add(this.label34);
             this.panel1.Controls.Add(this.label33);
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.Btn_Admin);
             this.panel1.Controls.Add(this.label29);
-            this.panel1.Controls.Add(this.button8);
+            this.panel1.Controls.Add(this.Btn_Home);
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.Btn_Start);
+            this.panel1.Controls.Add(this.Btn_Set);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.button9);
+            this.panel1.Controls.Add(this.Btn_Stop);
             this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.label23);
@@ -483,27 +491,27 @@
             this.panel1.Size = new System.Drawing.Size(1195, 96);
             this.panel1.TabIndex = 27;
             // 
-            // button6
+            // Btn_Admin
             // 
-            this.button6.BackgroundImage = global::UIform.Properties.Resources.user;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.Location = new System.Drawing.Point(238, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(82, 67);
-            this.button6.TabIndex = 49;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.Btn_Admin.BackgroundImage = global::UIform.Properties.Resources.user;
+            this.Btn_Admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_Admin.Location = new System.Drawing.Point(238, 3);
+            this.Btn_Admin.Name = "Btn_Admin";
+            this.Btn_Admin.Size = new System.Drawing.Size(82, 67);
+            this.Btn_Admin.TabIndex = 49;
+            this.Btn_Admin.UseVisualStyleBackColor = true;
+            this.Btn_Admin.Click += new System.EventHandler(this.Btn_Admin_Click);
             // 
-            // button8
+            // Btn_Home
             // 
-            this.button8.BackgroundImage = global::UIform.Properties.Resources.home;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.Location = new System.Drawing.Point(4, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(72, 67);
-            this.button8.TabIndex = 46;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.Btn_Home.BackgroundImage = global::UIform.Properties.Resources.home;
+            this.Btn_Home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_Home.Location = new System.Drawing.Point(4, 3);
+            this.Btn_Home.Name = "Btn_Home";
+            this.Btn_Home.Size = new System.Drawing.Size(72, 67);
+            this.Btn_Home.TabIndex = 46;
+            this.Btn_Home.UseVisualStyleBackColor = true;
+            this.Btn_Home.Click += new System.EventHandler(this.Btn_Home_Click);
             // 
             // button5
             // 
@@ -516,28 +524,28 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button7
+            // Btn_Start
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.BackgroundImage = global::UIform.Properties.Resources.start;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button7.Location = new System.Drawing.Point(866, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(71, 67);
-            this.button7.TabIndex = 51;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.Btn_Start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Start.BackgroundImage = global::UIform.Properties.Resources.start;
+            this.Btn_Start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_Start.Location = new System.Drawing.Point(866, 3);
+            this.Btn_Start.Name = "Btn_Start";
+            this.Btn_Start.Size = new System.Drawing.Size(71, 67);
+            this.Btn_Start.TabIndex = 51;
+            this.Btn_Start.UseVisualStyleBackColor = true;
+            this.Btn_Start.Click += new System.EventHandler(this.Btn_Start_Click);
             // 
-            // button3
+            // Btn_Set
             // 
-            this.button3.BackgroundImage = global::UIform.Properties.Resources.setting;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(82, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 67);
-            this.button3.TabIndex = 47;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Btn_Set.BackgroundImage = global::UIform.Properties.Resources.setting;
+            this.Btn_Set.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_Set.Location = new System.Drawing.Point(82, 3);
+            this.Btn_Set.Name = "Btn_Set";
+            this.Btn_Set.Size = new System.Drawing.Size(72, 67);
+            this.Btn_Set.TabIndex = 47;
+            this.Btn_Set.UseVisualStyleBackColor = true;
+            this.Btn_Set.Click += new System.EventHandler(this.Btn_Set_Click);
             // 
             // button11
             // 
@@ -550,17 +558,17 @@
             this.button11.TabIndex = 54;
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // Btn_Stop
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.BackgroundImage = global::UIform.Properties.Resources.stop;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button9.Location = new System.Drawing.Point(943, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 67);
-            this.button9.TabIndex = 52;
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.Btn_Stop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Stop.BackgroundImage = global::UIform.Properties.Resources.stop;
+            this.Btn_Stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_Stop.Location = new System.Drawing.Point(943, 3);
+            this.Btn_Stop.Name = "Btn_Stop";
+            this.Btn_Stop.Size = new System.Drawing.Size(75, 67);
+            this.Btn_Stop.TabIndex = 52;
+            this.Btn_Stop.UseVisualStyleBackColor = true;
+            this.Btn_Stop.Click += new System.EventHandler(this.Btn_Stop_Click);
             // 
             // button10
             // 
@@ -578,14 +586,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // newPanel1
-            // 
-            this.newPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.newPanel1.Location = new System.Drawing.Point(0, 0);
-            this.newPanel1.Name = "newPanel1";
-            this.newPanel1.Size = new System.Drawing.Size(899, 487);
-            this.newPanel1.TabIndex = 0;
             // 
             // FormMain
             // 
@@ -650,14 +650,14 @@
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button Btn_Start;
+        private System.Windows.Forms.Button Btn_Stop;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Btn_Home;
+        private System.Windows.Forms.Button Btn_Set;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button Btn_Admin;
         private System.Windows.Forms.Panel panel1;
         private FastCtr.NewPanel newPanel1;
         private System.Windows.Forms.Timer timer1;

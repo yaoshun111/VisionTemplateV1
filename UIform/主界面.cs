@@ -21,10 +21,10 @@ namespace UIform
         HDevProcedure m_CamProcedure = new HDevProcedure();
         HDevProcedureCall m_CamProcedureCall;
 
-
         string m_sHDevEnginePath = string.Empty;
-        public string m_sFilePath = Application.StartupPath + "\\Config";
-        public string PathLiaoHao = Application.StartupPath + "\\Config\\LiaoHao";
+
+
+
         #endregion
 
         private int m_iOriFormWidth = 0, m_iOriFormHeight = 0;
@@ -84,7 +84,7 @@ namespace UIform
                 m_HDevEngine.SetProcedurePath(m_sHDevEnginePath);
                 m_CamProcedure = new HDevProcedure("_829test");
                 m_CamProcedureCall = m_CamProcedure.CreateCall();
-                //HOperatorSet.SetDraw(hWindowControl1.HalconID, "margin");
+
             }
             catch (Exception df)
             {

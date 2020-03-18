@@ -13,13 +13,18 @@ using HalconDotNet;
 
 
 
-
 namespace UIform
 {
     public partial class SettingForm : Form
     {
         HObject ho_Image;
         HTuple hv_hWindowHandle;
+
+
+        HTuple hv_Gain;
+
+        HTuple hv_Exposure;
+
 
         public string ConfigPath = Application.StartupPath + "\\Config";
         public bool m_bCamOpenOk { get; set; }
@@ -49,7 +54,7 @@ namespace UIform
         private void SetForm_Load(object sender, EventArgs e)
         {
             #region 初始化ComboBox控件
-            string PathLiaoHao = Application.StartupPath + "\\Config\\LiaoHao";
+            string PathLiaoHao = Global.m_sLiaoHaoPath;
             if (!Directory.Exists(PathLiaoHao))
             {
                 Directory.CreateDirectory(PathLiaoHao);
@@ -57,7 +62,7 @@ namespace UIform
 
             comBox_TypeNow.Items.Clear();
             string[] str = null;
-            using (FileStream fsRead = new FileStream(ConfigPath + "\\LiaoHao\\LiaoHao.ini", FileMode.Open))
+            using (FileStream fsRead = new FileStream(Global.m_sLiaoHaoPath + "\\LiaoHao.ini", FileMode.Open))
             {
                 int fsLen = (int)fsRead.Length;
                 byte[] heByte = new byte[fsLen];
@@ -71,11 +76,40 @@ namespace UIform
             }
 
             string S1 = "";
-            S1 = IniAPI.INIGetStringValue(Application.StartupPath + "\\Config\\System.ini", "SYSTEM", "常用料号", "");
+            S1 = IniAPI.INIGetStringValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "常用料号", "");
             if (S1 != "")
             {
                 comBox_TypeNow.Text = S1;
             }
+
+            #endregion
+
+            #region 读取曝光和增益的最大值
+
+            int IntexposureMax = 0;
+            int IntgainMax = 0;
+
+            string StrexposureMax = string.Empty;
+            string StrgainMax = string.Empty;
+
+            StrexposureMax = IniAPI.INIGetStringValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "ExposureMax", "10000");
+            StrgainMax = IniAPI.INIGetStringValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "GainMax", "15");
+
+            bool b1 = int.TryParse(StrexposureMax, out IntexposureMax);
+            if (b1 != true)
+            {
+                IntexposureMax = 10000;
+            }
+            numUD_Exposure.Maximum = IntexposureMax;
+            bool b2 = int.TryParse(StrgainMax, out IntgainMax);
+            if (b2 != true)
+            {
+                IntgainMax = 15;
+            }
+            numUD_Gain.Maximum = IntgainMax;
+
+            IniAPI.INIWriteValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "ExposureMax", StrexposureMax);
+            IniAPI.INIWriteValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "GainMax", StrgainMax);
 
             #endregion
 
@@ -91,7 +125,7 @@ namespace UIform
                 comBox_TypeNow.Items.RemoveAt(comBox_TypeNow.SelectedIndex);
             }
 
-            string pth = Application.StartupPath + "\\Config\\LiaoHao\\" + typeNow;
+            string pth = Application.StartupPath + "\\" + typeNow;
             if (Directory.Exists(pth))
             {
                 string[] fileNumber = Directory.GetFiles(pth);
@@ -103,7 +137,7 @@ namespace UIform
                 Directory.Delete(pth);
             }
 
-            using (FileStream fsWrite = new FileStream(ConfigPath + "\\LiaoHao\\LiaoHao.ini", FileMode.Create))
+            using (FileStream fsWrite = new FileStream(Global.m_sLiaoHaoPath + "\\LiaoHao.ini", FileMode.Create))
             {
                 fsWrite.Write(System.Text.Encoding.UTF8.GetBytes(""), 0, 0);
             };
@@ -115,7 +149,7 @@ namespace UIform
                 string msg = comBox_TypeNow.SelectedItem.ToString() + ",";
                 byte[] myByte = System.Text.Encoding.UTF8.GetBytes(msg);
 
-                using (FileStream fsWrite = new FileStream(ConfigPath + "\\LiaoHao\\LiaoHao.ini", FileMode.Append))
+                using (FileStream fsWrite = new FileStream(Global.m_sLiaoHaoPath + "\\LiaoHao.ini", FileMode.Append))
                 {
                     fsWrite.Write(myByte, 0, myByte.Length);
                 };
@@ -128,7 +162,7 @@ namespace UIform
             DialogResult Dr1 = MessageBox.Show("确定要将当前料号设为常用料号吗?", "操作提示", MessageBoxButtons.OKCancel);
             if (Dr1 == DialogResult.OK && comBox_TypeNow.Text != string.Empty)
             {
-                IniAPI.INIWriteValue(Application.StartupPath + "\\Config\\System.ini", "SYSTEM", "常用料号", comBox_TypeNow.Text);
+                IniAPI.INIWriteValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "常用料号", comBox_TypeNow.Text);
             }
         }
 
@@ -139,26 +173,26 @@ namespace UIform
                 string st = tb_NewType.Text.ToUpper();
 
                 #region 527修改  判断当前料号是否存在
-                string stPath = Directory.GetCurrentDirectory() + "\\Config\\LiaoHao" + "\\" + st;
-                string[] filePath = Directory.GetDirectories(Directory.GetCurrentDirectory() + "\\Config\\LiaoHao");
+                string stPath = Global.m_sLiaoHaoPath + "\\" + st;
+                string[] filePath = Directory.GetDirectories(Global.m_sLiaoHaoPath);
                 for (int i = 0; i < filePath.Length; i++)
                 {
                     if (filePath[i] == stPath)
                     {
-                        MessageBox.Show("料号" + "【" + st + "】" + "已经存在", "操作提示!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("料号" + "【" + st + "】" + "已经存在，请重新命名。", "操作提示!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
                 #endregion
 
                 comBox_TypeNow.Items.Add(st);
-                string pth = Application.StartupPath + "\\Config\\LiaoHao\\" + st;
+                string pth = Global.m_sLiaoHaoPath + "\\" + st;
                 if (!Directory.Exists(pth))
                 {
                     Directory.CreateDirectory(pth);
                 }
 
-                using (FileStream fsWrite = new FileStream(ConfigPath + "\\LiaoHao\\LiaoHao.ini", FileMode.Create))
+                using (FileStream fsWrite = new FileStream(Global.m_sLiaoHaoPath + "\\LiaoHao.ini", FileMode.Create))
                 {
                     fsWrite.Write(System.Text.Encoding.UTF8.GetBytes(""), 0, 0);
                 };
@@ -171,7 +205,7 @@ namespace UIform
                     string msg = comBox_TypeNow.SelectedItem.ToString() + ",";
                     byte[] myByte = System.Text.Encoding.UTF8.GetBytes(msg);
 
-                    using (FileStream fsWrite = new FileStream(ConfigPath + "\\LiaoHao\\LiaoHao.ini", FileMode.Append))
+                    using (FileStream fsWrite = new FileStream(Global.m_sLiaoHaoPath + "\\LiaoHao.ini", FileMode.Append))
                     {
                         fsWrite.Write(myByte, 0, myByte.Length);
                     };
@@ -189,7 +223,6 @@ namespace UIform
                 ho_Image.Dispose();
                 HOperatorSet.ReadImage(out ho_Image, filepath);
                 CommonClass.Set_Disp_Obj(hv_hWindowHandle, ho_Image);
-                // m_isMayZoom = true;
             }
         }
 
@@ -214,7 +247,7 @@ namespace UIform
                     HOperatorSet.GrabImage(out ho_Image, CommonClass.hv_AcqHandle);
                     CommonClass.Set_Disp_Obj(hv_hWindowHandle, ho_Image);
                 }
-                catch(Exception df)
+                catch (Exception df)
                 {
                     MessageBox.Show("没有联机，操作无效！");
                 }
@@ -226,6 +259,70 @@ namespace UIform
             if (m_bCamOpenOk == true)
             {
 
+            }
+        }
+
+        private void Btn_SaveExGa_Click(object sender, EventArgs e)
+        {
+            int exp = Convert.ToInt32(numUD_Exposure.Value.ToString()); ;
+            int gain = Convert.ToInt32(numUD_Gain.Value.ToString());
+
+            if (comBox_TypeNow.Text != string.Empty)
+            {
+                string liaohaotemp = Global.m_sLiaoHaoPath + "\\" + comBox_TypeNow.Text + "\\System.ini";
+                IniAPI.INIWriteValue(liaohaotemp, "SYSTEM", "Exposure", exp.ToString());
+                IniAPI.INIWriteValue(liaohaotemp, "SYSTEM", "Gain", gain.ToString());
+            }
+            else
+            {
+                MessageBox.Show("请先加载料号，然后重新保存", "料号不能为空", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            hv_Exposure = Convert.ToInt32(numUD_Exposure.Value.ToString());
+            hv_Gain = Convert.ToInt32(numUD_Gain.Value.ToString());
+
+            if (m_bCamOpenOk == true)
+            {
+                try
+                {
+                    HOperatorSet.SetFramegrabberParam(CommonClass.hv_AcqHandle, "ExposureTime", hv_Exposure);
+                    HOperatorSet.SetFramegrabberParam(CommonClass.hv_AcqHandle, "Gain", hv_Gain);
+                }
+                catch (Exception df)
+                {
+
+                }
+            }
+        }
+
+        private void Btn_ReadExGa_Click(object sender, EventArgs e)
+        {
+            if (comBox_TypeNow.Text == string.Empty)
+            {
+                MessageBox.Show("请先加载料号，然后重新读取", "料号不能为空", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string liaohaotemp = Global.m_sLiaoHaoPath + "\\" + comBox_TypeNow.Text + "\\System.ini";
+                string StrExposureNow = string.Empty;
+                string StrGainNow = string.Empty;
+                int IntEposureNow = 0;
+                int IntGainNow = 0;
+                StrExposureNow = IniAPI.INIGetStringValue(liaohaotemp, "SYSTEM", "Exposure", "5000");
+                StrGainNow = IniAPI.INIGetStringValue(liaohaotemp, "SYSTEM", "Gain", "5");
+
+                bool b1 = int.TryParse(StrExposureNow, out IntEposureNow);
+                if (!b1)
+                {
+                    IntEposureNow = (int)numUD_Exposure.Maximum;
+                }
+                bool b2 = int.TryParse(StrGainNow, out IntGainNow);
+                if (!b2)
+                {
+                    IntGainNow = (int)numUD_Gain.Maximum;
+                }
+                numUD_Exposure.Value = IntEposureNow;
+                numUD_Gain.Value = IntGainNow;
             }
         }
     }

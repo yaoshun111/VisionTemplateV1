@@ -38,7 +38,7 @@ namespace UIform
 
 
         StartControl.Welcom wel = new StartControl.Welcom();
-        
+
         Global g = new Global();
 
 
@@ -54,7 +54,7 @@ namespace UIform
             InitializeComponent();
             OpacyTimer.Start();
 
-          Global. mainform.MySendMsgDelegate += this.SendMsg;
+            Global.mainform.MySendMsgDelegate += this.SendMsg;
 
 
         }
@@ -82,10 +82,9 @@ namespace UIform
 
             #endregion
 
-
             #region  打开相机，得到hv_AcqHandle。
             Thread.Sleep(500);
-           // ConnectDivice();
+            // ConnectDivice();
             if (m_bCamOpenOK == true)
             {
                 CommonClass.hv_AcqHandle = hv_AcqHandle;
@@ -143,15 +142,25 @@ namespace UIform
                 // btn_OnlineDevice.Enabled = true;
             }
         }
-        private void button3_Click(object sender, EventArgs e)
+
+
+        private void Btn_Set_Click(object sender, EventArgs e)
         {
             newPanel1.Show(Global.setting);
 
+            if (m_bCamOpenOK == true)
+            {
+                Global.setting.m_bCamOpenOk = true;            
+            }
+            else
+            {
+                Global.setting.m_bCamOpenOk = false;
+            }
+
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void Btn_Home_Click(object sender, EventArgs e)
         {
-
             newPanel1.Show(Global.mainform);
         }
 
@@ -160,7 +169,7 @@ namespace UIform
             newPanel1.Show(Global.dataForm);
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Btn_Admin_Click(object sender, EventArgs e)
         {
             newPanel1.Show(Global.login);
         }
@@ -172,7 +181,7 @@ namespace UIform
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
-            
+
         }
 
         public void SendMsg(HTuple hv_Msg)
@@ -190,11 +199,11 @@ namespace UIform
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
+
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Btn_Start_Click(object sender, EventArgs e)
         {
             if (m_bIsAutoRun == false)
             {
@@ -209,7 +218,7 @@ namespace UIform
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void Btn_Stop_Click(object sender, EventArgs e)
         {
             if (m_bIsAutoRun == true)
             {

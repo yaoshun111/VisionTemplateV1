@@ -394,7 +394,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(13, 21);
+            this.label12.Location = new System.Drawing.Point(13, 23);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 19);
             this.label12.TabIndex = 39;

@@ -426,6 +426,7 @@
             this.Name = "SettingForm";
             this.Text = "SetForm";
             this.Load += new System.EventHandler(this.SetForm_Load);
+            this.SizeChanged += new System.EventHandler(this.SettingForm_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

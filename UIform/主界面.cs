@@ -88,6 +88,7 @@ namespace UIform
             }
             catch (Exception df)
             {
+                string s = "a";
                 // Fun_Add_lb_Info("文件读取失败!" + df.Message);
             }
             #endregion

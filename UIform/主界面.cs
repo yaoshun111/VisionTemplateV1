@@ -21,7 +21,8 @@ namespace UIform
         HDevProcedure m_CamProcedure = new HDevProcedure();
         HDevProcedureCall m_CamProcedureCall;
 
-        public string m_sHDevEnginePath = System.Environment.CurrentDirectory + "\\HE";
+
+        string m_sHDevEnginePath = string.Empty;
         public string m_sFilePath = Application.StartupPath + "\\Config";
         public string PathLiaoHao = Application.StartupPath + "\\Config\\LiaoHao";
         #endregion
@@ -45,6 +46,8 @@ namespace UIform
 
             HOperatorSet.GenEmptyObj(out ho_Image);
             HOperatorSet.GenEmptyObj(out ho_ObjectOut);
+
+            m_sHDevEnginePath = Global.di + "\\HE";
 
             #region 标记窗体原有尺寸
 
@@ -107,8 +110,10 @@ namespace UIform
                 {
                     #region 图像处理
                     //测试显示图片
+
                     ho_Image.Dispose();
-                    HOperatorSet.ReadImage(out ho_Image, Application.StartupPath + "\\1.bmp");
+                    HOperatorSet.ReadImage(out ho_Image, Global.di + "\\1.bmp");
+
                     HTuple h, w;
                     HOperatorSet.GetImageSize(ho_Image, out w, out h);
                     HOperatorSet.SetPart(hv_hWindowHandle, 0, 0, h, w);

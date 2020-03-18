@@ -33,9 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CIPCompolet, Version=1.3.1.0, Culture=neutral, PublicKeyToken=f3505d5782c23c5d">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\OMRON\CX-Compolet\assembly\CIPCompolet.dll</HintPath>
+    <Reference Include="CIPCompolet">
+      <HintPath>..\dll\CIPCompolet.dll</HintPath>
     </Reference>
     <Reference Include="HslCommunication">
       <HintPath>..\dll\HslCommunication.6.2.2\lib\net35\HslCommunication.dll</HintPath>

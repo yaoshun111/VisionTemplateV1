@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.1" halcon_version="13.0">
+<procedure name="_829test">
+<interface>
+<io>
+<par name="Image" base_type="iconic" dimension="0"/>
+</io>
+<oo>
+<par name="Contours" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="threshold" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="n" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<c></c>
+<l>threshold (Image, Region, threshold, 255)</l>
+<l>connection (Region, ConnectedRegions)</l>
+<l>select_shape_std (ConnectedRegions, SelectedRegions, 'max_area', 70)</l>
+<l>Contours:=SelectedRegions</l>
+<l>area_center (SelectedRegions, Area, Row, Column)</l>
+<l>n:=Area</l>
+<c></c>
+<l>return ()</l>
+</body>
+<docu id="_829test">
+<parameters>
+<parameter id="Contours">
+<sem_type>region</sem_type>
+</parameter>
+<parameter id="Image">
+<sem_type>image</sem_type>
+<type_list>
+<item>byte</item>
+</type_list>
+</parameter>
+<parameter id="n">
+<default_type>integer</default_type>
+<type_list>
+<item>integer</item>
+</type_list>
+</parameter>
+<parameter id="threshold">
+<default_type>integer</default_type>
+<type_list>
+<item>integer</item>
+</type_list>
+</parameter>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

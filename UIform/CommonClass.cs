@@ -13,6 +13,12 @@ namespace UIform
     {
         public static bool m_bStartAutoRun = false;
 
+
+        public static HTuple hv_Gain;
+
+        public static HTuple hv_Exposure;
+
+
         /// <summary>
         /// UI界面传递过来的相机采图句柄
         /// </summary>

@@ -36,6 +36,13 @@
             this.Btn_GrabContinue = new System.Windows.Forms.Button();
             this.Btn_GrabSingle = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Btn_SetUsual = new System.Windows.Forms.Button();
+            this.btn_DeleteOld = new System.Windows.Forms.Button();
+            this.btn_AddNew = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_NewType = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comBox_TypeNow = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -48,20 +55,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.comBox_TypeNow = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_NewType = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_AddNew = new System.Windows.Forms.Button();
-            this.btn_DeleteOld = new System.Windows.Forms.Button();
-            this.Btn_SetUsual = new System.Windows.Forms.Button();
-            this.numUD_Exposure = new System.Windows.Forms.NumericUpDown();
-            this.numUD_Gain = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Btn_SaveExGa = new System.Windows.Forms.Button();
             this.Btn_ReadExGa = new System.Windows.Forms.Button();
+            this.Btn_SaveExGa = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numUD_Gain = new System.Windows.Forms.NumericUpDown();
+            this.numUD_Exposure = new System.Windows.Forms.NumericUpDown();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -69,8 +69,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUD_Exposure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUD_Gain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUD_Exposure)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -161,6 +161,69 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "料号设置";
+            // 
+            // Btn_SetUsual
+            // 
+            this.Btn_SetUsual.Location = new System.Drawing.Point(127, 69);
+            this.Btn_SetUsual.Name = "Btn_SetUsual";
+            this.Btn_SetUsual.Size = new System.Drawing.Size(53, 27);
+            this.Btn_SetUsual.TabIndex = 6;
+            this.Btn_SetUsual.Text = "常用";
+            this.Btn_SetUsual.UseVisualStyleBackColor = true;
+            this.Btn_SetUsual.Click += new System.EventHandler(this.Btn_SetUsual_Click);
+            // 
+            // btn_DeleteOld
+            // 
+            this.btn_DeleteOld.Location = new System.Drawing.Point(68, 69);
+            this.btn_DeleteOld.Name = "btn_DeleteOld";
+            this.btn_DeleteOld.Size = new System.Drawing.Size(53, 27);
+            this.btn_DeleteOld.TabIndex = 5;
+            this.btn_DeleteOld.Text = "删除";
+            this.btn_DeleteOld.UseVisualStyleBackColor = true;
+            this.btn_DeleteOld.Click += new System.EventHandler(this.btn_DeleteOld_Click);
+            // 
+            // btn_AddNew
+            // 
+            this.btn_AddNew.Location = new System.Drawing.Point(16, 69);
+            this.btn_AddNew.Name = "btn_AddNew";
+            this.btn_AddNew.Size = new System.Drawing.Size(46, 27);
+            this.btn_AddNew.TabIndex = 4;
+            this.btn_AddNew.Text = "添加";
+            this.btn_AddNew.UseVisualStyleBackColor = true;
+            this.btn_AddNew.Click += new System.EventHandler(this.btn_AddNew_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "新增料号";
+            // 
+            // tb_NewType
+            // 
+            this.tb_NewType.Location = new System.Drawing.Point(68, 46);
+            this.tb_NewType.Name = "tb_NewType";
+            this.tb_NewType.Size = new System.Drawing.Size(100, 21);
+            this.tb_NewType.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "当前料号";
+            // 
+            // comBox_TypeNow
+            // 
+            this.comBox_TypeNow.FormattingEnabled = true;
+            this.comBox_TypeNow.Location = new System.Drawing.Point(68, 20);
+            this.comBox_TypeNow.Name = "comBox_TypeNow";
+            this.comBox_TypeNow.Size = new System.Drawing.Size(100, 20);
+            this.comBox_TypeNow.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -291,101 +354,25 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "亮度设置";
             // 
-            // tabPage2
+            // Btn_ReadExGa
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(863, 457);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "参数设置";
+            this.Btn_ReadExGa.Location = new System.Drawing.Point(127, 55);
+            this.Btn_ReadExGa.Name = "Btn_ReadExGa";
+            this.Btn_ReadExGa.Size = new System.Drawing.Size(46, 27);
+            this.Btn_ReadExGa.TabIndex = 6;
+            this.Btn_ReadExGa.Text = "读取";
+            this.Btn_ReadExGa.UseVisualStyleBackColor = true;
+            this.Btn_ReadExGa.Click += new System.EventHandler(this.Btn_ReadExGa_Click);
             // 
-            // comBox_TypeNow
+            // Btn_SaveExGa
             // 
-            this.comBox_TypeNow.FormattingEnabled = true;
-            this.comBox_TypeNow.Location = new System.Drawing.Point(68, 20);
-            this.comBox_TypeNow.Name = "comBox_TypeNow";
-            this.comBox_TypeNow.Size = new System.Drawing.Size(100, 20);
-            this.comBox_TypeNow.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "当前料号";
-            // 
-            // tb_NewType
-            // 
-            this.tb_NewType.Location = new System.Drawing.Point(68, 46);
-            this.tb_NewType.Name = "tb_NewType";
-            this.tb_NewType.Size = new System.Drawing.Size(100, 21);
-            this.tb_NewType.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "新增料号";
-            // 
-            // btn_AddNew
-            // 
-            this.btn_AddNew.Location = new System.Drawing.Point(16, 69);
-            this.btn_AddNew.Name = "btn_AddNew";
-            this.btn_AddNew.Size = new System.Drawing.Size(46, 27);
-            this.btn_AddNew.TabIndex = 4;
-            this.btn_AddNew.Text = "添加";
-            this.btn_AddNew.UseVisualStyleBackColor = true;
-            this.btn_AddNew.Click += new System.EventHandler(this.btn_AddNew_Click);
-            // 
-            // btn_DeleteOld
-            // 
-            this.btn_DeleteOld.Location = new System.Drawing.Point(68, 69);
-            this.btn_DeleteOld.Name = "btn_DeleteOld";
-            this.btn_DeleteOld.Size = new System.Drawing.Size(53, 27);
-            this.btn_DeleteOld.TabIndex = 5;
-            this.btn_DeleteOld.Text = "删除";
-            this.btn_DeleteOld.UseVisualStyleBackColor = true;
-            this.btn_DeleteOld.Click += new System.EventHandler(this.btn_DeleteOld_Click);
-            // 
-            // Btn_SetUsual
-            // 
-            this.Btn_SetUsual.Location = new System.Drawing.Point(127, 69);
-            this.Btn_SetUsual.Name = "Btn_SetUsual";
-            this.Btn_SetUsual.Size = new System.Drawing.Size(53, 27);
-            this.Btn_SetUsual.TabIndex = 6;
-            this.Btn_SetUsual.Text = "常用";
-            this.Btn_SetUsual.UseVisualStyleBackColor = true;
-            this.Btn_SetUsual.Click += new System.EventHandler(this.Btn_SetUsual_Click);
-            // 
-            // numUD_Exposure
-            // 
-            this.numUD_Exposure.Location = new System.Drawing.Point(55, 21);
-            this.numUD_Exposure.Name = "numUD_Exposure";
-            this.numUD_Exposure.Size = new System.Drawing.Size(66, 21);
-            this.numUD_Exposure.TabIndex = 0;
-            // 
-            // numUD_Gain
-            // 
-            this.numUD_Gain.Location = new System.Drawing.Point(55, 61);
-            this.numUD_Gain.Name = "numUD_Gain";
-            this.numUD_Gain.Size = new System.Drawing.Size(66, 21);
-            this.numUD_Gain.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "曝光";
+            this.Btn_SaveExGa.Location = new System.Drawing.Point(127, 20);
+            this.Btn_SaveExGa.Name = "Btn_SaveExGa";
+            this.Btn_SaveExGa.Size = new System.Drawing.Size(46, 27);
+            this.Btn_SaveExGa.TabIndex = 5;
+            this.Btn_SaveExGa.Text = "保存";
+            this.Btn_SaveExGa.UseVisualStyleBackColor = true;
+            this.Btn_SaveExGa.Click += new System.EventHandler(this.Btn_SaveExGa_Click);
             // 
             // label4
             // 
@@ -396,32 +383,47 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "增益";
             // 
-            // Btn_SaveExGa
+            // label3
             // 
-            this.Btn_SaveExGa.Location = new System.Drawing.Point(127, 20);
-            this.Btn_SaveExGa.Name = "Btn_SaveExGa";
-            this.Btn_SaveExGa.Size = new System.Drawing.Size(46, 27);
-            this.Btn_SaveExGa.TabIndex = 5;
-            this.Btn_SaveExGa.Text = "保存";
-            this.Btn_SaveExGa.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "曝光";
             // 
-            // Btn_ReadExGa
+            // numUD_Gain
             // 
-            this.Btn_ReadExGa.Location = new System.Drawing.Point(127, 55);
-            this.Btn_ReadExGa.Name = "Btn_ReadExGa";
-            this.Btn_ReadExGa.Size = new System.Drawing.Size(46, 27);
-            this.Btn_ReadExGa.TabIndex = 6;
-            this.Btn_ReadExGa.Text = "读取";
-            this.Btn_ReadExGa.UseVisualStyleBackColor = true;
+            this.numUD_Gain.Location = new System.Drawing.Point(55, 61);
+            this.numUD_Gain.Name = "numUD_Gain";
+            this.numUD_Gain.Size = new System.Drawing.Size(66, 21);
+            this.numUD_Gain.TabIndex = 1;
             // 
-            // SetForm
+            // numUD_Exposure
+            // 
+            this.numUD_Exposure.Location = new System.Drawing.Point(55, 21);
+            this.numUD_Exposure.Name = "numUD_Exposure";
+            this.numUD_Exposure.Size = new System.Drawing.Size(66, 21);
+            this.numUD_Exposure.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(863, 457);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "参数设置";
+            // 
+            // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(869, 484);
             this.Controls.Add(this.tabControl1);
-            this.Name = "SetForm";
+            this.Name = "SettingForm";
             this.Text = "SetForm";
             this.Load += new System.EventHandler(this.SetForm_Load);
             this.groupBox1.ResumeLayout(false);
@@ -433,8 +435,8 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUD_Exposure)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUD_Gain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUD_Exposure)).EndInit();
             this.ResumeLayout(false);
 
         }

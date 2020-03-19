@@ -14,6 +14,7 @@ using HalconDotNet;
 
 namespace UIform
 {
+
     public partial class SettingForm : Form
     {
         HObject ho_Image;

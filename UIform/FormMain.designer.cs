@@ -40,6 +40,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.newPanel1 = new FastCtr.NewPanel(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -248,6 +248,16 @@
             this.splitContainer3.SplitterWidth = 1;
             this.splitContainer3.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Location = new System.Drawing.Point(148, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(140, 82);
+            this.panel2.TabIndex = 3;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -388,7 +398,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(13, 25);
+            this.label12.Location = new System.Drawing.Point(13, 21);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 19);
             this.label12.TabIndex = 39;
@@ -588,16 +598,6 @@
             this.newPanel1.Name = "newPanel1";
             this.newPanel1.Size = new System.Drawing.Size(899, 487);
             this.newPanel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Location = new System.Drawing.Point(148, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(140, 82);
-            this.panel2.TabIndex = 3;
             // 
             // FormMain
             // 

@@ -62,6 +62,13 @@
             this.numUD_Gain = new System.Windows.Forms.NumericUpDown();
             this.numUD_Exposure = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cameraParamSetPage1 = new FastCtr.CameraParamSetPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -71,6 +78,9 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUD_Gain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUD_Exposure)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -318,11 +328,14 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(871, 483);
             this.tabControl1.TabIndex = 4;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
@@ -409,12 +422,82 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabPage2.Controls.Add(this.cameraParamSetPage1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(863, 457);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "参数设置";
+            // 
+            // cameraParamSetPage1
+            // 
+            this.cameraParamSetPage1.Location = new System.Drawing.Point(24, 29);
+            this.cameraParamSetPage1.Name = "cameraParamSetPage1";
+            this.cameraParamSetPage1.Size = new System.Drawing.Size(808, 379);
+            this.cameraParamSetPage1.TabIndex = 0;
+            this.cameraParamSetPage1.Load += new System.EventHandler(this.cameraParamSetPage1_Load);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(863, 457);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "通讯配置";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(94, 200);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 36);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "PLC设置";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(94, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 36);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "串口通信";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabPage4.Controls.Add(this.button4);
+            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(863, 457);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "相机配置";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(394, 236);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 36);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "相机";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(394, 184);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 36);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "模板匹配";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // SettingForm
             // 
@@ -437,6 +520,9 @@
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUD_Gain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUD_Exposure)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -477,5 +563,12 @@
         private System.Windows.Forms.Button Btn_SaveExGa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private FastCtr.CameraParamSetPage cameraParamSetPage1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
     }
 }

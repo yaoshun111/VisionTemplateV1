@@ -19,6 +19,7 @@ namespace UIform
     public partial class FormMain : Form
 
     {
+        
         /// <summary>
         /// 正在自动运行标志位
         /// </summary>
@@ -39,24 +40,23 @@ namespace UIform
 
         StartControl.Welcom wel = new StartControl.Welcom();
 
-        Global g = new Global();
 
 
         Timer OpacyTimer = new Timer();
 
         public FormMain()
         {
+            wel.Start();
+            Global g = new Global();
             wel.TopMost = true;
             OpacyTimer.Tick += new EventHandler(OpacyTimer_Tick);
             OpacyTimer.Interval = 20;
-            wel.Start();
+          
             Opacity = 0;
             InitializeComponent();
             OpacyTimer.Start();
 
             Global.mainform.MySendMsgDelegate += this.SendMsg;
-
-
         }
         private void OpacyTimer_Tick(object sender, EventArgs e)
         {
@@ -75,6 +75,10 @@ namespace UIform
         private void FormMain_Load(object sender, EventArgs e)
         {
             splitContainer2.Panel2.Controls.Add(Global.loghelper);//添加日志窗口到窗体
+            newPanel1.Show(Global.mainform);//显示主界面
+
+
+
             Thread.Sleep(1900);
             wel.Stop();
 

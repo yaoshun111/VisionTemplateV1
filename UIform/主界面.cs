@@ -84,7 +84,6 @@ namespace UIform
                 m_HDevEngine.SetProcedurePath(m_sHDevEnginePath);
                 m_CamProcedure = new HDevProcedure("_829test");
                 m_CamProcedureCall = m_CamProcedure.CreateCall();
-
             }
             catch (Exception df)
             {
@@ -97,7 +96,6 @@ namespace UIform
             m_AutoRunThread.IsBackground = true;
             m_AutoRunThread.Start();
             Console.WriteLine("自动作业线程已开启！" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff"));
-
             #endregion
         }
 
@@ -146,7 +144,7 @@ namespace UIform
 
                     if (MySendMsgDelegate != null)
                     {
-                        MySendMsgDelegate.Invoke(result);
+                        MySendMsgDelegate(result);
                     }
                     #endregion
                 }

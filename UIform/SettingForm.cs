@@ -308,7 +308,7 @@ namespace UIform
                 string StrGainNow = string.Empty;
                 int IntEposureNow = 0;
                 int IntGainNow = 0;
-                StrExposureNow = IniAPI.INIGetStringValue(liaohaotemp, "SYSTEM", "Exposure", "5000");
+                StrExposureNow = IniAPI.INIGetStringValue(liaohaotemp, "SYSTEM", "Exposure", "5000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ");
                 StrGainNow = IniAPI.INIGetStringValue(liaohaotemp, "SYSTEM", "Gain", "5");
 
                 bool b1 = int.TryParse(StrExposureNow, out IntEposureNow);
@@ -324,6 +324,37 @@ namespace UIform
                 numUD_Exposure.Value = IntEposureNow;
                 numUD_Gain.Value = IntGainNow;
             }
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if(e.TabPage.Text=="参数设置")
+            {
+
+            }
+            else if(e.TabPage.Text=="视觉设置")
+            {
+                MessageBox.Show("视觉设置");
+            }
+        }
+
+        private void cameraParamSetPage1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form form = new Form();
+            form.Controls.Add(Global.templateCreator);
+            form.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form form = new Form();
+            form.Controls.Add(Global.camera);
+            form.Show();
         }
     }
 }

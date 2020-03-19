@@ -58,6 +58,12 @@
     <Compile Include="ANDweigh.Designer.cs">
       <DependentUpon>ANDweigh.cs</DependentUpon>
     </Compile>
+    <Compile Include="CameraParamSetPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CameraParamSetPage.Designer.cs">
+      <DependentUpon>CameraParamSetPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -151,6 +157,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ANDweigh.resx">
       <DependentUpon>ANDweigh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CameraParamSetPage.resx">
+      <DependentUpon>CameraParamSetPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CpkBox.resx">
       <DependentUpon>CpkBox.cs</DependentUpon>

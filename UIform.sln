@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastCtr", "FastCtr\FastCtr.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastData", "FastData\FastData.csproj", "{D496620B-1914-4416-B1F0-EAE2F270DD43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalconTest", "HalconTest\HalconTest.csproj", "{330CAC08-583C-4845-9E43-CA3886176D6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,14 @@ Global
 		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Release|x64.ActiveCfg = Release|Any CPU
 		{D496620B-1914-4416-B1F0-EAE2F270DD43}.Release|x64.Build.0 = Release|Any CPU
+		{330CAC08-583C-4845-9E43-CA3886176D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330CAC08-583C-4845-9E43-CA3886176D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330CAC08-583C-4845-9E43-CA3886176D6E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{330CAC08-583C-4845-9E43-CA3886176D6E}.Debug|x64.Build.0 = Debug|Any CPU
+		{330CAC08-583C-4845-9E43-CA3886176D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330CAC08-583C-4845-9E43-CA3886176D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{330CAC08-583C-4845-9E43-CA3886176D6E}.Release|x64.ActiveCfg = Release|Any CPU
+		{330CAC08-583C-4845-9E43-CA3886176D6E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

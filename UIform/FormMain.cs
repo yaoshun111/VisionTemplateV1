@@ -35,11 +35,7 @@ namespace UIform
         /// </summary>
         public bool m_bCamOpenOK = false;
 
-
-
-
         StartControl.Welcom wel = new StartControl.Welcom();
-
 
 
         Timer OpacyTimer = new Timer();
@@ -94,10 +90,6 @@ namespace UIform
                 CommonClass.hv_AcqHandle = hv_AcqHandle;
             }
             #endregion
-
-            //  
-            //界面初始化结束后
-            //自动程序开始启动
 
         }
         private void ConnectDivice()
@@ -154,7 +146,7 @@ namespace UIform
 
             if (m_bCamOpenOK == true)
             {
-                Global.setting.m_bCamOpenOk = true;            
+                Global.setting.m_bCamOpenOk = true;
             }
             else
             {
@@ -185,7 +177,7 @@ namespace UIform
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
-
+            this.TopMost = true;
         }
 
         public void SendMsg(HTuple hv_Msg)

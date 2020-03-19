@@ -12,7 +12,6 @@ using System.IO;
 using HalconDotNet;
 
 
-
 namespace UIform
 {
     public partial class SettingForm : Form
@@ -20,10 +19,19 @@ namespace UIform
         HObject ho_Image;
         HTuple hv_hWindowHandle;
 
-
         HTuple hv_Gain;
 
         HTuple hv_Exposure;
+        private int m_iOriFormWidth = 0, m_iOriFormHeight = 0;
+
+        #region Halcon 引擎
+        HDevEngine m_HDevEngine = new HDevEngine();
+        HDevProcedure m_CamProcedure = new HDevProcedure();
+        HDevProcedureCall m_CamProcedureCall;
+
+        string m_sHDevEnginePath = string.Empty;
+
+        #endregion
 
 
         public string ConfigPath = Application.StartupPath + "\\Config";
@@ -35,6 +43,20 @@ namespace UIform
         private SettingForm()
         {
             InitializeComponent();
+
+
+            #region 标记窗体原有尺寸
+
+            hv_hWindowHandle = hWindowControl1.HalconWindow;
+
+            HOperatorSet.SetColor(hv_hWindowHandle, "red");
+
+            m_sHDevEnginePath = Global.di + "\\HE";
+            ListControl(this);
+            m_iOriFormWidth = this.Width;
+            m_iOriFormHeight = this.Height;
+
+            #endregion
 
             HOperatorSet.GenEmptyObj(out ho_Image);
             hv_hWindowHandle = hWindowControl1.HalconWindow;
@@ -111,6 +133,21 @@ namespace UIform
             IniAPI.INIWriteValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "ExposureMax", StrexposureMax);
             IniAPI.INIWriteValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "GainMax", StrgainMax);
 
+            #endregion
+
+            #region 加载hdvp文件
+            try
+            {
+                m_HDevEngine.SetProcedurePath(m_sHDevEnginePath);
+                m_CamProcedure = new HDevProcedure("_829test");
+                m_CamProcedureCall = m_CamProcedure.CreateCall();
+
+            }
+            catch (Exception df)
+            {
+                string s = "a";
+                // Fun_Add_lb_Info("文件读取失败!" + df.Message);
+            }
             #endregion
 
         }
@@ -308,7 +345,7 @@ namespace UIform
                 string StrGainNow = string.Empty;
                 int IntEposureNow = 0;
                 int IntGainNow = 0;
-                StrExposureNow = IniAPI.INIGetStringValue(liaohaotemp, "SYSTEM", "Exposure", "5000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ");
+                StrExposureNow = IniAPI.INIGetStringValue(liaohaotemp, "SYSTEM", "Exposure", "5000");
                 StrGainNow = IniAPI.INIGetStringValue(liaohaotemp, "SYSTEM", "Gain", "5");
 
                 bool b1 = int.TryParse(StrExposureNow, out IntEposureNow);
@@ -323,6 +360,134 @@ namespace UIform
                 }
                 numUD_Exposure.Value = IntEposureNow;
                 numUD_Gain.Value = IntGainNow;
+            }
+        }
+
+        private void ListControl(Control control, int Index = 0, double WRatio = 1.0, double HRatio = 1.0)
+        {
+            try
+            {
+                int Count = control.Controls.Count;
+
+                if (Count < 0)
+                {
+                    return;
+                }
+
+                for (int i = 0; i < Count; i++)
+                {
+                    switch (Index)
+                    {
+                        case 0:
+
+                            int width = control.Controls[i].Width;
+                            int height = control.Controls[i].Height;
+                            int left = control.Controls[i].Left;
+                            int top = control.Controls[i].Top;
+                            float size = control.Controls[i].Font.Size;
+                            control.Controls[i].Tag = width.ToString() + "," + height.ToString() + "," +
+                                                      left.ToString() + "," + top.ToString() + "," + size.ToString();
+                            ListControl(control.Controls[i], Index);
+
+                            break;
+                        case 1:
+
+                            MessageBox.Show(control.Controls[i].ToString() + ":" + control.Controls[i].Tag.ToString());
+                            ListControl(control.Controls[i], Index);
+
+                            break;
+
+                        case 2:
+                            //提取控件原始 width height
+                            string tag = control.Controls[i].Tag.ToString();
+                            string[] strs = tag.Split(',');
+                            int iWidth = int.Parse(strs[0]);
+                            int iHeight = int.Parse(strs[1]);
+                            int iLeft = int.Parse(strs[2]);
+                            int iTop = int.Parse(strs[3]);
+                            float fSize = float.Parse(strs[4]);
+                            control.Controls[i].Width = (int)(iWidth * WRatio);
+                            control.Controls[i].Height = (int)(iHeight * HRatio);
+                            control.Controls[i].Left = (int)(iLeft * WRatio);
+                            control.Controls[i].Top = (int)(iTop * HRatio);
+                            control.Controls[i].Font = new System.Drawing.Font("宋体", (float)(fSize * (WRatio + HRatio) / 2));
+                            ListControl(control.Controls[i], Index, WRatio, HRatio);
+
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("ListControl" + ex.Message);
+            }
+        }
+
+        private void FlushWindow(HTuple hWindowControlID, int Index = 0)
+        {
+            try
+            {
+                switch (Index)
+                {
+                    case 1:
+
+                        #region 显示相机1原图
+                        if (ho_Image.IsInitialized() == true)
+                        {
+                            if (ho_Image.CountObj() != 0)
+                            {
+                                HOperatorSet.ClearWindow(hWindowControlID);
+                                HOperatorSet.DispObj(ho_Image, hWindowControlID);
+                            }
+                        }
+                        #endregion
+
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("FlushWindow:" + ex.Message);
+            }
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            HObject ho_ObjectOut;
+
+            HOperatorSet.GenEmptyObj(out ho_ObjectOut);
+            ho_ObjectOut.Dispose();
+            CommonClass.Cam1Procedure(m_CamProcedureCall, hv_hWindowHandle, ho_Image, out ho_ObjectOut);
+            HOperatorSet.DispObj(ho_ObjectOut, hv_hWindowHandle);
+        }
+
+        private void SettingForm_SizeChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                #region 根据窗体原有尺寸进行对应比例缩放
+
+                int iFormWidth = this.Width;
+                int iFormHeight = this.Height;
+                double WRatio = 1.0 * iFormWidth / m_iOriFormWidth;
+                double HRatio = 1.0 * iFormHeight / m_iOriFormHeight;
+
+                ListControl(this, 2, WRatio, HRatio);
+
+                FlushWindow(hv_hWindowHandle, 1);
+
+                #endregion
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("CHalconTemplate_SizeChanged:" + ex.Message);
             }
         }
 

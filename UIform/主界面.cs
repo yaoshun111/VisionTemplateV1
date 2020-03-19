@@ -23,8 +23,6 @@ namespace UIform
 
         string m_sHDevEnginePath = string.Empty;
 
-
-
         #endregion
 
         private int m_iOriFormWidth = 0, m_iOriFormHeight = 0;
@@ -70,7 +68,6 @@ namespace UIform
                 Form1Single = new 主界面();
             }
             return Form1Single;
-
         }
 
 
@@ -87,6 +84,7 @@ namespace UIform
             }
             catch (Exception df)
             {
+                string s = "a";
                 // Fun_Add_lb_Info("文件读取失败!" + df.Message);
             }
             #endregion

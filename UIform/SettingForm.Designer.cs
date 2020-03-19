@@ -209,7 +209,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
-            this.label2.Text = "新增料号";
+            this.label2.Text = "新增型号";
             // 
             // tb_NewType
             // 
@@ -225,7 +225,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "当前料号";
+            this.label1.Text = "当前型号";
             // 
             // comBox_TypeNow
             // 
@@ -278,6 +278,7 @@
             this.button10.TabIndex = 5;
             this.button10.Text = "button10";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -369,7 +370,7 @@
             // 
             // Btn_ReadExGa
             // 
-            this.Btn_ReadExGa.Location = new System.Drawing.Point(127, 55);
+            this.Btn_ReadExGa.Location = new System.Drawing.Point(127, 50);
             this.Btn_ReadExGa.Name = "Btn_ReadExGa";
             this.Btn_ReadExGa.Size = new System.Drawing.Size(46, 27);
             this.Btn_ReadExGa.TabIndex = 6;
@@ -379,7 +380,7 @@
             // 
             // Btn_SaveExGa
             // 
-            this.Btn_SaveExGa.Location = new System.Drawing.Point(127, 20);
+            this.Btn_SaveExGa.Location = new System.Drawing.Point(127, 15);
             this.Btn_SaveExGa.Name = "Btn_SaveExGa";
             this.Btn_SaveExGa.Size = new System.Drawing.Size(46, 27);
             this.Btn_SaveExGa.TabIndex = 5;
@@ -390,7 +391,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 63);
+            this.label4.Location = new System.Drawing.Point(14, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 3;
@@ -399,7 +400,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 23);
+            this.label3.Location = new System.Drawing.Point(14, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 2;
@@ -407,7 +408,7 @@
             // 
             // numUD_Gain
             // 
-            this.numUD_Gain.Location = new System.Drawing.Point(55, 61);
+            this.numUD_Gain.Location = new System.Drawing.Point(55, 55);
             this.numUD_Gain.Name = "numUD_Gain";
             this.numUD_Gain.Size = new System.Drawing.Size(66, 21);
             this.numUD_Gain.TabIndex = 1;
@@ -509,6 +510,7 @@
             this.Name = "SettingForm";
             this.Text = "SetForm";
             this.Load += new System.EventHandler(this.SetForm_Load);
+            this.SizeChanged += new System.EventHandler(this.SettingForm_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

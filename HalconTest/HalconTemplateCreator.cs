@@ -47,6 +47,20 @@ namespace HalconTest
                 engine.SetGlobalCtrlVarTuple("TemplateSavePath", path);
         }
 
+        public void SetLineSavePath(string path)
+        {
+            if (engine != null)
+                engine.SetGlobalCtrlVarTuple("LineSavePath", path);
+        }
+
+        public void SetCircleSavePath(string path)
+        {
+            if (engine != null)
+                engine.SetGlobalCtrlVarTuple("CircleSavePath", path);
+        }
+
+
+
         public void GetContempPic()
         {
             Image = engine.GetGlobalIconicVarObject("ContempPic");
@@ -189,11 +203,11 @@ namespace HalconTest
                         impl = new HDevOpMultiWindowImpl(hWindowControltemp.HalconWindow);
 
                     engine.SetHDevOperators(impl);
-                    string di = new DirectoryInfo(string.Format("{0}../../../../", Application.StartupPath)).FullName;
-                    string aa = di + "Template";
-                    if (!Directory.Exists(aa))
-                        Directory.CreateDirectory(aa);
-                    textBox1.Text = aa + "\\template.tif";
+                    //string di = new DirectoryInfo(string.Format("{0}../../../../", Application.StartupPath)).FullName;
+                    //string aa = di + "Template";
+                    //if (!Directory.Exists(aa))
+                    //    Directory.CreateDirectory(aa);
+                    //textBox1.Text = aa + "\\template.tif";
 
                     string strFileName = ofd.FileName;
                     SetTemplateOriginPath(strFileName);
@@ -207,6 +221,11 @@ namespace HalconTest
         {
             SetTemplateSavePath(textBox1.Text);
         }
+
+
+
+
+
 
         public void ParentForm_FormClosing(object sender, EventArgs e)
         {
@@ -227,90 +246,6 @@ namespace HalconTest
         private void HalconTemplateCreator_Load(object sender, EventArgs e)
         {
            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (textBox2.Text != "")
-            {
-                string path = Path.GetDirectoryName(textBox2.Text);
-                if (Directory.Exists(path))
-                {
-                    StartDrawLine();
-                }
-                else
-                {
-                    MessageBox.Show("路径不存在");
-                }
-            }
-            else
-            {
-                MessageBox.Show("请设置路径！");
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            SaveFileDialog sfd = new SaveFileDialog();
-            string di = new DirectoryInfo(string.Format("{0}../../../../", Application.StartupPath)).FullName;
-            string aa = di + "型号";
-            if (!Directory.Exists(aa))
-                Directory.CreateDirectory(aa);
-            sfd.InitialDirectory = aa; //设置初始路径
-            sfd.Filter = "TTIF文件(*.tif)|*.tif|所有文件(*.*)|*.*"; //设置“另存为文件类型”或“文件类型”框中出现的选择内容
-            sfd.FilterIndex = 0; //设置默认显示文件类型
-            sfd.Title = "保存图片"; //获取或设置文件对话框标题
-            sfd.AddExtension = true;
-            sfd.FileName = "template";
-            sfd.CheckPathExists = true;
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                string localFilePath = sfd.FileName.ToString(); //获得文件路径
-                textBox2.Text = localFilePath;
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (textBox3.Text != "")
-            {
-                string path = Path.GetDirectoryName(textBox3.Text);
-                if (Directory.Exists(path))
-                {
-                    StartDrawCircle();
-                }
-                else
-                {
-                    MessageBox.Show("路径不存在");
-                }
-            }
-            else
-            {
-                MessageBox.Show("请设置路径！");
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-            SaveFileDialog sfd = new SaveFileDialog();
-            string di = new DirectoryInfo(string.Format("{0}../../../../", Application.StartupPath)).FullName;
-            string aa = di + "型号";
-            if (!Directory.Exists(aa))
-                Directory.CreateDirectory(aa);
-            sfd.InitialDirectory = aa; //设置初始路径
-            sfd.Filter = "TTIF文件(*.tif)|*.tif|所有文件(*.*)|*.*"; //设置“另存为文件类型”或“文件类型”框中出现的选择内容
-            sfd.FilterIndex = 0; //设置默认显示文件类型
-            sfd.Title = "保存图片"; //获取或设置文件对话框标题
-            sfd.AddExtension = true;
-            sfd.FileName = "template";
-            sfd.CheckPathExists = true;
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                string localFilePath = sfd.FileName.ToString(); //获得文件路径
-                textBox3.Text = localFilePath;
-            }
-        }
+        }   
     }
 }

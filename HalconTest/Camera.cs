@@ -263,61 +263,67 @@ namespace HalconTest
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            if (engine != null)
+            try
             {
-                textBox1.Text = engine.GetGlobalCtrlVarTuple("ExceptionMessage").ToString();
-                int[] Result = engine.GetGlobalCtrlVarTuple("IsOK").ToIArr();
-                if (Result.Length > 0)
+                if (engine != null)
                 {
-                    switch (Result[1])
+                    textBox1.Text = engine.GetGlobalCtrlVarTuple("ExceptionMessage").ToString();
+                    int[] Result = engine.GetGlobalCtrlVarTuple("IsOK").ToIArr();
+                    if (Result.Length > 0)
                     {
-                        case 0:
-                            label1.BackColor = Color.Red;
-                            button2.Text = "连续采集";
-                            button1.Enabled = false;
-                            button2.Enabled = false;
-                            break;
-                        case 1:
-                            label1.BackColor = Color.LimeGreen;
-                            if (engine.GetGlobalCtrlVarTuple("Id") != 3 && task.Status == TaskStatus.Running)
-                            {
-                                button1.Enabled = true;
-                            }
-                            button2.Enabled = true;
-                            break;
+                        switch (Result[1])
+                        {
+                            case 0:
+                                label1.BackColor = Color.Red;
+                                button2.Text = "连续采集";
+                                button1.Enabled = false;
+                                button2.Enabled = false;
+                                break;
+                            case 1:
+                                label1.BackColor = Color.LimeGreen;
+                                if (engine.GetGlobalCtrlVarTuple("Id") != 3 && task.Status == TaskStatus.Running)
+                                {
+                                    button1.Enabled = true;
+                                }
+                                button2.Enabled = true;
+                                break;
+                        }
                     }
+                    else
+                    {
+                        label1.BackColor = Color.Red;
+                    }
+                    if (engine.GetGlobalCtrlVarTuple("Id") == 3 && task.Status == TaskStatus.Running)
+                    {
+                        button1.Enabled = false;
+                    }
+
+                }
+                if (task.Status == TaskStatus.Running)
+                {
+                    label2.BackColor = Color.LimeGreen;
                 }
                 else
                 {
-                    label1.BackColor = Color.Red;
+                    label2.BackColor = Color.Red;
                 }
-                if (engine.GetGlobalCtrlVarTuple("Id") == 3 && task.Status == TaskStatus.Running)
+
+
+                if (task.Status == TaskStatus.Running)
                 {
+                    button4.Enabled = true;
+                }
+                else
+                {
+                    button4.Enabled = false;
+                    button2.Enabled = false;
                     button1.Enabled = false;
                 }
+            }
+            catch
+            {
 
             }
-            if (task.Status == TaskStatus.Running)
-            {
-                label2.BackColor = Color.LimeGreen;
-            }
-            else
-            {
-                label2.BackColor = Color.Red;
-            }
-
-
-            if(task.Status==TaskStatus.Running)
-            {
-                button4.Enabled = true;
-            }
-            else
-            {
-                button4.Enabled = false;
-                button2.Enabled = false;
-                button1.Enabled = false;
-            }
-
         }
 
         private void 保存图片ToolStripMenuItem_Click(object sender, EventArgs e)

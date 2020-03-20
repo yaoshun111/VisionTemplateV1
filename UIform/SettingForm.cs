@@ -10,13 +10,23 @@ using System.Windows.Forms;
 using INIAPI;
 using System.IO;
 using HalconDotNet;
-
+using HalconTest;
 
 namespace UIform
 {
 
     public partial class SettingForm : Form
     {
+
+        HObject hObject = new HObject();
+
+
+
+
+
+
+
+
         HObject ho_Image;
         HTuple hv_hWindowHandle;
 
@@ -44,7 +54,7 @@ namespace UIform
         private SettingForm()
         {
             InitializeComponent();
-
+            tabControl1.TabPages[3].Controls.Add(CameraOperator.GetThis(Global.ContempProductType));
 
             #region 标记窗体原有尺寸
 
@@ -69,9 +79,7 @@ namespace UIform
             {
                 SetFormSingle = new SettingForm();
             }
-
             return SetFormSingle;
-
         }
 
         private void SetForm_Load(object sender, EventArgs e)
@@ -501,8 +509,14 @@ namespace UIform
             }
             else if (e.TabPage.Text == "视觉设置")
             {
-                MessageBox.Show("视觉设置");
+               // MessageBox.Show("视觉设置");
             }
+            else if (e.TabPage.Text == "图像操作")
+            {
+
+            }
+
+
         }
 
         private void cameraParamSetPage1_Load(object sender, EventArgs e)

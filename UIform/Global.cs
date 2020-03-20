@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FastCtr;
+using HalconTest;
 
 namespace UIform
 {
@@ -25,18 +26,19 @@ namespace UIform
         /// 型号文件夹所在的目录,每个型号对应的产量保存在自己文件夹下面
         /// </summary>
         public static string m_sLiaoHaoPath = m_sConfigPath + "\\LiaoHao";
+        public static string ContempProductType = "111111";
 
-        public static SettingForm setting = SettingForm.GetSingle();
-        public static LogIn login = new LogIn();
-        public static ProductType product = new ProductType();
+        public static SettingForm settingForm = SettingForm.GetSingle();
+        public static LogIn loginForm = new LogIn();
+        public static ProductType productForm = new ProductType();
         public static 主界面 mainform = 主界面.GetSingle();
-
         public static DataForm dataForm = new DataForm();
         public static NewLogHelper loghelper = new NewLogHelper();
 
-        public static HalconTest.Camera camera = new HalconTest.Camera();
-        public static HalconTest.HalconTemplateCreator templateCreator = new HalconTest.HalconTemplateCreator();
+        
       
+
+
     }
 }
 

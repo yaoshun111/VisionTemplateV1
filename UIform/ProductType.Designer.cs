@@ -35,9 +35,9 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.doubleBufferListView1 = new FastCtr.DoubleBufferListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -87,35 +87,35 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.doubleBufferListView1);
-            this.panel1.Location = new System.Drawing.Point(129, 52);
+            this.panel1.Location = new System.Drawing.Point(79, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(521, 336);
+            this.panel1.Size = new System.Drawing.Size(571, 376);
             this.panel1.TabIndex = 43;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(112, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 12);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "当前选择的型号";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(207, 272);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(187, 21);
+            this.textBox1.TabIndex = 44;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(250, 264);
+            this.button1.Location = new System.Drawing.Point(220, 350);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 43;
             this.button1.Text = "切换";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(211, 223);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 21);
-            this.textBox1.TabIndex = 44;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(116, 226);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 12);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "当前选择的型号";
             // 
             // doubleBufferListView1
             // 
@@ -127,9 +127,9 @@
             this.doubleBufferListView1.GridLines = true;
             this.doubleBufferListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.doubleBufferListView1.HideSelection = false;
-            this.doubleBufferListView1.Location = new System.Drawing.Point(132, 3);
+            this.doubleBufferListView1.Location = new System.Drawing.Point(96, 41);
             this.doubleBufferListView1.Name = "doubleBufferListView1";
-            this.doubleBufferListView1.Size = new System.Drawing.Size(256, 190);
+            this.doubleBufferListView1.Size = new System.Drawing.Size(298, 186);
             this.doubleBufferListView1.TabIndex = 42;
             this.doubleBufferListView1.UseCompatibleStateImageBehavior = false;
             this.doubleBufferListView1.View = System.Windows.Forms.View.Details;
@@ -138,7 +138,7 @@
             // 
             this.columnHeader7.Text = "名称";
             this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 102;
+            this.columnHeader7.Width = 127;
             // 
             // columnHeader8
             // 

@@ -31,7 +31,6 @@ namespace StartControl
             this.loadingCircle1.Active = true;
             timer1.Start();
             timer2.Start();
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)

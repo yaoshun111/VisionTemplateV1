@@ -43,7 +43,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(242, 175);
+            this.label1.Location = new System.Drawing.Point(242, 164);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 36);
             this.label1.TabIndex = 1;

@@ -50,8 +50,8 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.Btn_FindModel = new System.Windows.Forms.Button();
+            this.Btn_CreateModel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -109,7 +109,7 @@
             this.groupBox2.Controls.Add(this.Btn_ReadImage);
             this.groupBox2.Controls.Add(this.Btn_GrabContinue);
             this.groupBox2.Controls.Add(this.Btn_GrabSingle);
-            this.groupBox2.Location = new System.Drawing.Point(658, 219);
+            this.groupBox2.Location = new System.Drawing.Point(658, 208);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(195, 85);
             this.groupBox2.TabIndex = 1;
@@ -165,7 +165,7 @@
             this.groupBox3.Controls.Add(this.tb_NewType);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.comBox_TypeNow);
-            this.groupBox3.Location = new System.Drawing.Point(658, 17);
+            this.groupBox3.Location = new System.Drawing.Point(658, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(195, 102);
             this.groupBox3.TabIndex = 2;
@@ -243,11 +243,11 @@
             this.groupBox4.Controls.Add(this.button9);
             this.groupBox4.Controls.Add(this.button8);
             this.groupBox4.Controls.Add(this.button7);
-            this.groupBox4.Controls.Add(this.button6);
-            this.groupBox4.Controls.Add(this.button5);
-            this.groupBox4.Location = new System.Drawing.Point(658, 310);
+            this.groupBox4.Controls.Add(this.Btn_FindModel);
+            this.groupBox4.Controls.Add(this.Btn_CreateModel);
+            this.groupBox4.Location = new System.Drawing.Point(658, 299);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(195, 137);
+            this.groupBox4.Size = new System.Drawing.Size(195, 147);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "模板设置";
@@ -274,7 +274,7 @@
             // 
             this.button10.Location = new System.Drawing.Point(97, 78);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.Size = new System.Drawing.Size(75, 27);
             this.button10.TabIndex = 5;
             this.button10.Text = "button10";
             this.button10.UseVisualStyleBackColor = true;
@@ -284,49 +284,52 @@
             // 
             this.button9.Location = new System.Drawing.Point(16, 78);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.Size = new System.Drawing.Size(75, 27);
             this.button9.TabIndex = 4;
             this.button9.Text = "button9";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(97, 49);
+            this.button8.Location = new System.Drawing.Point(97, 48);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.Size = new System.Drawing.Size(75, 27);
             this.button8.TabIndex = 3;
             this.button8.Text = "button8";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(16, 49);
+            this.button7.Location = new System.Drawing.Point(16, 48);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.Size = new System.Drawing.Size(75, 27);
             this.button7.TabIndex = 2;
             this.button7.Text = "button7";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // Btn_FindModel
             // 
-            this.button6.Location = new System.Drawing.Point(97, 20);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.Btn_FindModel.Location = new System.Drawing.Point(97, 16);
+            this.Btn_FindModel.Name = "Btn_FindModel";
+            this.Btn_FindModel.Size = new System.Drawing.Size(75, 27);
+            this.Btn_FindModel.TabIndex = 1;
+            this.Btn_FindModel.Text = "查找模板";
+            this.Btn_FindModel.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // Btn_CreateModel
             // 
-            this.button5.Location = new System.Drawing.Point(16, 20);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.Btn_CreateModel.Location = new System.Drawing.Point(16, 16);
+            this.Btn_CreateModel.Name = "Btn_CreateModel";
+            this.Btn_CreateModel.Size = new System.Drawing.Size(75, 27);
+            this.Btn_CreateModel.TabIndex = 0;
+            this.Btn_CreateModel.Text = "创建模板";
+            this.Btn_CreateModel.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -334,7 +337,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(871, 483);
+            this.tabControl1.Size = new System.Drawing.Size(871, 475);
             this.tabControl1.TabIndex = 4;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -349,7 +352,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(863, 457);
+            this.tabPage1.Size = new System.Drawing.Size(863, 449);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "视觉设置";
             // 
@@ -361,7 +364,7 @@
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.numUD_Gain);
             this.groupBox5.Controls.Add(this.numUD_Exposure);
-            this.groupBox5.Location = new System.Drawing.Point(658, 125);
+            this.groupBox5.Location = new System.Drawing.Point(658, 114);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(195, 88);
             this.groupBox5.TabIndex = 4;
@@ -427,13 +430,13 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(863, 457);
+            this.tabPage2.Size = new System.Drawing.Size(863, 449);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "参数设置";
             // 
             // cameraParamSetPage1
             // 
-            this.cameraParamSetPage1.Location = new System.Drawing.Point(24, 29);
+            this.cameraParamSetPage1.Location = new System.Drawing.Point(8, 6);
             this.cameraParamSetPage1.Name = "cameraParamSetPage1";
             this.cameraParamSetPage1.Size = new System.Drawing.Size(808, 379);
             this.cameraParamSetPage1.TabIndex = 0;
@@ -447,7 +450,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(863, 457);
+            this.tabPage3.Size = new System.Drawing.Size(863, 449);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "通讯配置";
             // 
@@ -476,7 +479,7 @@
             this.tabPage4.Controls.Add(this.button3);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(863, 457);
+            this.tabPage4.Size = new System.Drawing.Size(863, 449);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "相机配置";
             // 
@@ -504,9 +507,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(869, 484);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(871, 475);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingForm";
             this.Text = "SetForm";
             this.Load += new System.EventHandler(this.SetForm_Load);
@@ -549,8 +553,8 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button Btn_FindModel;
+        private System.Windows.Forms.Button Btn_CreateModel;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comBox_TypeNow;

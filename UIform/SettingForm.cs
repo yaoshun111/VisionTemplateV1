@@ -337,7 +337,7 @@ namespace UIform
         {
             if (comBox_TypeNow.Text == string.Empty)
             {
-                MessageBox.Show("请先加载料号，然后重新读取", "料号不能为空", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("请先加载型号，然后重新读取", "型号不能为空", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -495,11 +495,11 @@ namespace UIform
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            if(e.TabPage.Text=="参数设置")
+            if (e.TabPage.Text == "参数设置")
             {
 
             }
-            else if(e.TabPage.Text=="视觉设置")
+            else if (e.TabPage.Text == "视觉设置")
             {
                 MessageBox.Show("视觉设置");
             }
@@ -516,6 +516,7 @@ namespace UIform
             form.Controls.Add(Global.templateCreator);
             form.Show();
         }
+      
 
         private void button4_Click(object sender, EventArgs e)
         {

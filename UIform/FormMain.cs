@@ -42,6 +42,16 @@ namespace UIform
         /// </summary>
         public string m_sLiaoHao = string.Empty;
 
+
+        public HTuple hv_Exposure;
+
+        public HTuple hv_Gain;
+
+        public int m_TotalCount = 0;
+        public int m_OKCount = 0;
+        public int m_NGCount = 0;
+
+
         StartControl.Welcom wel = new StartControl.Welcom();
 
 
@@ -51,7 +61,8 @@ namespace UIform
         {
             wel.Start();
             Global g = new Global();
-            wel.TopMost = true;
+            this.TopMost = true;
+          
             OpacyTimer.Tick += new EventHandler(OpacyTimer_Tick);
             OpacyTimer.Interval = 20;
 
@@ -61,6 +72,7 @@ namespace UIform
 
             Global.mainform.MySendMsgDelegate += this.SendMsg;
         }
+
         private void OpacyTimer_Tick(object sender, EventArgs e)
         {
             if (Opacity >= 1)
@@ -83,17 +95,33 @@ namespace UIform
             Thread.Sleep(1900);
             wel.Stop();
 
-            #region 加载型号，得到当前常型号。
+            #region 加载型号，得到当前常型号，然后读取对应的曝光和增益，读取当前型号的产量信息。
 
             m_sLiaoHao = IniAPI.INIGetStringValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "常用料号", "");
+            int a1 = 0;
+            int a2 = 0;
 
-            if (m_sLiaoHao!=string.Empty)
+            if (m_sLiaoHao != string.Empty)
             {
                 label3.Text = m_sLiaoHao;
+                CommonClass.m_sLiaohao = m_sLiaoHao;
+
+                Fun_ReadIni(Global.m_sLiaoHaoPath + "\\" + m_sLiaoHao, "Exposure", out a1);
+                hv_Exposure = a1;
+
+                Fun_ReadIni(Global.m_sLiaoHaoPath + "\\" + m_sLiaoHao, "Gain", out a2);
+                hv_Gain = a2;
+
+                Fun_ReadIni(Global.m_sLiaoHaoPath + "\\" + m_sLiaoHao, "TotalCount", out CommonClass.m_TotalCount);
+                tb_TotalCount.Text = CommonClass.m_TotalCount.ToString();
+                Fun_ReadIni(Global.m_sLiaoHaoPath + "\\" + m_sLiaoHao, "OKCount", out CommonClass.m_OKCount);
+                tb_OKCount.Text = CommonClass.m_OKCount.ToString();
+                Fun_ReadIni(Global.m_sLiaoHaoPath + "\\" + m_sLiaoHao, "NGCount", out CommonClass.m_NGCount);
+                tb_NGCount.Text = CommonClass.m_NGCount.ToString();
             }
             else
             {
-
+                CommonClass.m_sLiaohao = string.Empty;
             }
             #endregion
 
@@ -103,20 +131,23 @@ namespace UIform
             if (m_bCamOpenOK == true)
             {
                 CommonClass.hv_AcqHandle = hv_AcqHandle;
+
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", hv_Exposure);
+                HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "Gain", hv_Gain);
             }
             #endregion
 
         }
+
+
         private void ConnectDivice()
         {
             try
             {
-                //  string CameraDevice = IniAPI.INIGetStringValue(filepath, "CAMERA", "C_DEVICE", "Cam1");
                 //打开相机及配置
                 HOperatorSet.CloseAllFramegrabbers();
                 HOperatorSet.OpenFramegrabber("GigEVision", 1, 1, 0, 0, 0, 0, "default", -1,
-                 "default", -1, "false", "default", "Cam1",
-                  0, -1, out hv_AcqHandle);
+                 "default", -1, "false", "default", "Cam1", 0, -1, out hv_AcqHandle);
 
                 //  panel3.BackColor = Color.Green;
                 m_bCamOpenOK = true;
@@ -126,34 +157,92 @@ namespace UIform
                 MessageBox.Show("未能成功打开相机，可能导致问题的原因是：相机被占用，相机网线未插上或者相机未通电！");
                 m_bCamOpenOK = false;
             }
-            try
-            {
-                if (m_bCamOpenOK == true)
-                {
-                    //ho_Image.Dispose();
-                    //HOperatorSet.GrabImage(out ho_Image, hv_AcqHandle);
-                    //GOLABLE.m_AcqHandle1 = hv_AcqHandle;
-                    //try
-                    //{
-                    //    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureAuto", "Off");
-                    //    HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "GainAuto", "Off");
-                    //}
-                    //catch (Exception) { }
-                    //hv_ExposureTime = Convert.ToInt32(INIAPI.IniAPI.INIGetStringValue(filepath, "SYSTEM", "exposure", null));
-                    //hv_Gain = Convert.ToInt32(INIAPI.IniAPI.INIGetStringValue(filepath, "SYSTEM", "gain", null));
-                    //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "ExposureTime", hv_ExposureTime);
-                    //HOperatorSet.SetFramegrabberParam(hv_AcqHandle, "Gain", hv_Gain);
 
-                    //panel3.BackColor = Color.Green;
-                }
-            }
-            catch (Exception eaa)
-            {
-                MessageBox.Show("在初始化相机参数时出错，请检查！");
-                // btn_OnlineDevice.Enabled = true;
-            }
         }
 
+
+        public void Fun_ReadIni(string liaohaopath, string keyname, out int hv_ParamsOut)
+        {
+            hv_ParamsOut = 0;
+            bool b1 = false;
+            try
+            {
+                string pathtemp = liaohaopath + "\\System.ini";
+
+                switch (keyname)
+                {
+                    case "Exposure":
+                        b1 = int.TryParse(IniAPI.INIGetStringValue(pathtemp, "SYSTEM", keyname, "5000"), out hv_ParamsOut);
+                        break;
+
+                    case "Gain":
+                        b1 = int.TryParse(IniAPI.INIGetStringValue(pathtemp, "SYSTEM", keyname, "10"), out hv_ParamsOut);
+                        break;
+
+                    case "TotalCount":
+                        b1 = int.TryParse(IniAPI.INIGetStringValue(pathtemp, "SYSTEM", keyname, "0"), out hv_ParamsOut);
+                        break;
+
+                    case "OKCount":
+                        b1 = int.TryParse(IniAPI.INIGetStringValue(pathtemp, "SYSTEM", keyname, "0"), out hv_ParamsOut);
+                        break;
+
+                    case "NGCount":
+                        b1 = int.TryParse(IniAPI.INIGetStringValue(pathtemp, "SYSTEM", keyname, "0"), out hv_ParamsOut);
+                        break;
+                }
+
+                if (!b1)
+                {
+                    switch (keyname)
+                    {
+                        case "Exposure":
+                            hv_ParamsOut = 5000;
+                            break;
+
+                        case "Gain":
+                            hv_ParamsOut = 10;
+                            break;
+
+                        case "TotalCount":
+                            hv_ParamsOut = 0;
+                            break;
+
+                        case "OKCount":
+                            hv_ParamsOut = 0;
+                            break;
+
+                        case "NGCount":
+                            hv_ParamsOut = 0;
+                            break;
+                    }
+                }
+
+            }
+            catch (Exception df)
+            {
+                if (keyname == "Exposure")
+                {
+                    hv_ParamsOut = 5000;
+                }
+                else if (keyname == "Gain")
+                {
+                    hv_ParamsOut = 10;
+                }
+                else if (keyname == "TotalCount")
+                {
+                    hv_ParamsOut = 0;
+                }
+                else if (keyname == "OKCount")
+                {
+                    hv_ParamsOut = 0;
+                }
+                else
+                {
+                    hv_ParamsOut = 0;
+                }
+            }
+        }
 
         private void Btn_Set_Click(object sender, EventArgs e)
         {
@@ -192,18 +281,23 @@ namespace UIform
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
-
+            this.TopMost = false;
         }
 
         public void SendMsg(HTuple hv_Msg)
         {
-            this.Invoke((EventHandler)(delegate
+            this.Invoke(new EventHandler(delegate
             {
-                button1.Text = hv_Msg.TupleSelect(0).S.ToString();
-                button1.BackColor = (hv_Msg.TupleSelect(0).S == "OK" ? Color.Green : Color.Red);
+                Btn_ResultColor.Text = hv_Msg.TupleSelect(0).S.ToString();
+                Btn_ResultColor.BackColor = (hv_Msg.TupleSelect(0).S == "OK" ? Color.Green : Color.Red);
 
-                textBox1.Text = hv_Msg.TupleSelect(1).I.ToString();
+                tb_TotalCount.Text = hv_Msg.TupleSelect(1).I.ToString();
+                tb_OKCount.Text = hv_Msg.TupleSelect(2).I.ToString();
+                tb_NGCount.Text = hv_Msg.TupleSelect(3).I.ToString();
+
+                tb_PassRate.Text = hv_Msg.TupleSelect(4).D.ToString("f2") + "%";
             }));
+
         }
 
 
@@ -238,6 +332,11 @@ namespace UIform
                 label29.BackColor = Color.Red;
                 label33.BackColor = Color.Green;
             }
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

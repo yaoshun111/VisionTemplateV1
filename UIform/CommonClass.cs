@@ -13,10 +13,18 @@ namespace UIform
     {
         public static bool m_bStartAutoRun = false;
 
-
         public static HTuple hv_Gain;
 
         public static HTuple hv_Exposure;
+
+        public static int m_TotalCount = 0;
+        public static int m_OKCount = 0;
+        public static int m_NGCount = 0;
+
+        /// <summary>
+        /// UI界面传递过来的当前型号
+        /// </summary>
+        public static string m_sLiaohao = string.Empty;
 
 
         /// <summary>

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using HalconDotNet;
+using INIAPI;
 
 namespace UIform
 {
@@ -24,6 +25,13 @@ namespace UIform
         string m_sHDevEnginePath = string.Empty;
 
         #endregion
+
+        /// <summary>
+        /// 图像处理的最终结果
+        /// </summary>
+        public bool m_bInspectResult = false;
+
+        //public bool m_bCamOpenOk { get; set; }
 
         private int m_iOriFormWidth = 0, m_iOriFormHeight = 0;
 
@@ -71,8 +79,6 @@ namespace UIform
         }
 
 
-        public bool m_bCamOpenOk { get; set; }
-
         private void 主界面_Load(object sender, EventArgs e)
         {
             #region 加载hdvp文件
@@ -97,7 +103,7 @@ namespace UIform
             #endregion
         }
 
-        int count = 0;
+
         public void Fun_AutoRun()
         {
             while (true)
@@ -123,39 +129,52 @@ namespace UIform
 
                     #region 图像保存
                     Thread.Sleep(50);
-                    count++;
+
                     #endregion
 
                     #region 向UI界面发送处理结果
                     HTuple result = new HTuple();
 
-                    result[1] = count;
-                    if (count % 2 == 0)
+                    CommonClass.m_TotalCount++;
+
+                    result[1] = CommonClass.m_TotalCount;
+                    result[2] = CommonClass.m_OKCount;
+                    result[3] = CommonClass.m_NGCount;
+                    if (result[1] % 2 == 0)
                     {
                         result[0] = "OK";
+                        CommonClass.m_OKCount++;
                     }
                     else
                     {
                         result[0] = "NG";
+                        CommonClass.m_NGCount++;
                     }
+
+                    //将当前产量保存到本地
+                    Fun_WriteIni(CommonClass.m_sLiaohao, "TotalCount", CommonClass.m_TotalCount.ToString());
+                    Fun_WriteIni(CommonClass.m_sLiaohao, "OKCount", CommonClass.m_OKCount.ToString());
+                    Fun_WriteIni(CommonClass.m_sLiaohao, "NGCount", CommonClass.m_NGCount.ToString());
+
                     //将合格率的计算也放到该界面中，将计算结果输出到UI界面
+                    result[4] = 100 * (double)CommonClass.m_OKCount / CommonClass.m_TotalCount;
 
                     if (MySendMsgDelegate != null)
                     {
                         MySendMsgDelegate(result);
                     }
+
                     #endregion
                 }
                 Thread.Sleep(5);
             }
         }
 
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void Fun_WriteIni(string liaohaoPath, string keyName, string value)
         {
-            if (e.Button == MouseButtons.Right)
+            if (liaohaoPath != string.Empty)
             {
-                contextMenuStrip1.Show();
+                IniAPI.INIWriteValue(Global.m_sLiaoHaoPath + "\\" + liaohaoPath + "\\System.ini", "SYSTEM", keyName, value);
             }
         }
 

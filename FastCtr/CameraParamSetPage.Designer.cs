@@ -325,6 +325,7 @@
             this.Controls.Add(this.groupBox6);
             this.Name = "CameraParamSetPage";
             this.Size = new System.Drawing.Size(819, 454);
+            this.Load += new System.EventHandler(this.CameraParamSetPage_Load);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);

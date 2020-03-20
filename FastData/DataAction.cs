@@ -421,6 +421,7 @@ namespace FastData
             stream.Close();
             stream.Dispose();
         }
+
         public static object ReadBinF(string _name)
         {
             try
@@ -442,28 +443,64 @@ namespace FastData
             }
         }
 
-
-        public static void SaveBin(string _name, object _obj)
+        public static void SaveBinF_type(string _type,string _name, object _obj)
         {
-            if (false == System.IO.Directory.Exists("BinData"))
+            string path = new DirectoryInfo("../../../Type/" + _type + "/ConfigurationData/BinFile/").FullName;
+            if (!Directory.Exists(path))
             {
-                //创建pic文件夹
-                System.IO.Directory.CreateDirectory("BinData");
+                Directory.CreateDirectory(path);
             }
-
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("BinData\\" + _name + ".bin", FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+            Stream stream = new FileStream(path + _name + ".bin", FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, _obj);
             stream.Close();
             stream.Dispose();
         }
 
-        public static object ReadBin(string _name)
+        public static object ReadBinF_type(string _type, string _name)
         {
             try
             {
                 IFormatter formatter = new BinaryFormatter();
-                Stream streamc = new FileStream("BinData\\" + _name + ".bin", FileMode.Open, FileAccess.Read, FileShare.None);
+                string path = new DirectoryInfo("../../../Type/" + _type + "/ConfigurationData/BinFile/").FullName;
+                path = path + _name + ".bin";
+                Stream streamc = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None);
+                object ret = formatter.Deserialize(streamc);
+                streamc.Close();
+                streamc.Dispose();
+                return ret;
+            }
+            catch (Exception exp)
+            {
+
+                throw new Exception("读取二进制文件" + _name + "失败！" + "错误信息：" + exp.Message);
+
+            }
+        }
+
+
+
+        public static void SaveBin(string _path, object _obj)
+        {
+            //if (false == System.IO.Directory.Exists("BinData"))
+            //{
+            //    //创建pic文件夹
+            //    System.IO.Directory.CreateDirectory("BinData");
+            //}
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(_path , FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, _obj);
+            stream.Close();
+            stream.Dispose();
+        }
+
+        public static object ReadBin(string _path)
+        {
+            try
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream streamc = new FileStream(_path , FileMode.Open, FileAccess.Read, FileShare.None);
                 object ret = formatter.Deserialize(streamc);
                 streamc.Close();
                 streamc.Dispose();
@@ -472,7 +509,7 @@ namespace FastData
             catch (Exception exp)
             {
                 // return null;
-                throw new Exception("读取二进制文件" + _name + "失败！" + "错误信息：" + exp.Message);
+                throw new Exception("读取二进制文件" + _path + "失败！" + "错误信息：" + exp);
             }
         }
 

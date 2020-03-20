@@ -25,12 +25,15 @@ namespace FastCtr
 
         public void Show(Form ctr)
         {
-            this.Controls.Clear();
-            ctr.FormBorderStyle = FormBorderStyle.None;
-            ctr.Dock = DockStyle.Fill;
-            ctr.TopLevel = false;
-            this.Controls.Add(ctr);
-            ctr.Show();
+            if (!this.Controls.Contains(ctr))
+            {
+                this.Controls.Clear();
+                ctr.FormBorderStyle = FormBorderStyle.None;
+                ctr.Dock = DockStyle.Fill;
+                ctr.TopLevel = false;
+                this.Controls.Add(ctr);
+                ctr.Show();
+            }
         }
 
 

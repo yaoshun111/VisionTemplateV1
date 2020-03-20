@@ -44,7 +44,6 @@ namespace UIform
         {
             wel.Start();
             Global g = new Global();
-            wel.TopMost = true;
             OpacyTimer.Tick += new EventHandler(OpacyTimer_Tick);
             OpacyTimer.Interval = 20;
           
@@ -75,8 +74,8 @@ namespace UIform
 
 
 
-            Thread.Sleep(1900);
-            wel.Stop();
+            //Thread.Sleep(1900);
+            
 
             #region 加载料号，得到当前常用料号。
 
@@ -91,6 +90,7 @@ namespace UIform
             }
             #endregion
 
+            wel.Stop();
         }
         private void ConnectDivice()
         {
@@ -142,15 +142,15 @@ namespace UIform
 
         private void Btn_Set_Click(object sender, EventArgs e)
         {
-            newPanel1.Show(Global.setting);
+            newPanel1.Show(Global.settingForm);
 
             if (m_bCamOpenOK == true)
             {
-                Global.setting.m_bCamOpenOk = true;
+                Global.settingForm.m_bCamOpenOk = true;
             }
             else
             {
-                Global.setting.m_bCamOpenOk = false;
+                Global.settingForm.m_bCamOpenOk = false;
             }
 
         }
@@ -167,17 +167,18 @@ namespace UIform
 
         private void Btn_Admin_Click(object sender, EventArgs e)
         {
-            newPanel1.Show(Global.login);
+            newPanel1.Show(Global.loginForm);
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            newPanel1.Show(Global.product);
+            newPanel1.Show(Global.productForm);
         }
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
             this.TopMost = true;
+            this.TopMost = false;
         }
 
         public void SendMsg(HTuple hv_Msg)

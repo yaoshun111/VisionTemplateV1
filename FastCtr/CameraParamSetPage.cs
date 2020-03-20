@@ -136,5 +136,10 @@ namespace FastCtr
                 MessageBox.Show("保存失败！" + exp);
             }
         }
+
+        private void CameraParamSetPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

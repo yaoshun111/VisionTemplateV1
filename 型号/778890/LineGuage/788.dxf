@@ -1,0 +1,134 @@
+999
+DXF file created by HALCON
+  0
+SECTION
+  2
+HEADER
+  9
+$ACADVER
+  1
+AC1009
+  0
+ENDSEC
+  0
+SECTION
+  2
+TABLES
+  0
+TABLE
+  2
+LTYPE
+ 70
+1
+  0
+LTYPE
+  2
+CONTINUOUS
+ 70
+0
+  3
+Solid line
+ 72
+65
+ 73
+0
+ 40
+0
+  0
+ENDTAB
+  0
+TABLE
+  2
+LAYER
+ 70
+1
+  0
+LAYER
+  2
+0
+ 70
+0
+ 62
+7
+  6
+CONTINUOUS
+  0
+ENDTAB
+  0
+TABLE
+  2
+APPID
+ 70
+2
+  0
+APPID
+  2
+ACAD
+ 70
+64
+  0
+APPID
+  2
+HALCON
+ 70
+64
+  0
+ENDTAB
+  0
+ENDSEC
+  0
+SECTION
+  2
+BLOCKS
+  0
+ENDSEC
+  0
+SECTION
+  2
+ENTITIES
+  0
+POLYLINE
+  8
+0
+ 66
+1
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+ 70
+0
+  0
+VERTEX
+  8
+0
+ 10
+321.50790405
+ 20
+394.49023438
+ 30
+0.0
+  0
+VERTEX
+  8
+0
+ 10
+530.03222656
+ 20
+415.58258057
+ 30
+0.0
+  0
+SEQEND
+  0
+ENDSEC
+  0
+SECTION
+  2
+OBJECTS
+  0
+ENDSEC
+  0
+EOF

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<procedure name="m_follow_point_transf">
+<interface>
+<ic>
+<par name="AnglePre" base_type="ctrl" dimension="0"/>
+<par name="RowPre" base_type="ctrl" dimension="0"/>
+<par name="ColumnPre" base_type="ctrl" dimension="0"/>
+<par name="AngleNew" base_type="ctrl" dimension="0"/>
+<par name="RowNew" base_type="ctrl" dimension="0"/>
+<par name="ColumnNew" base_type="ctrl" dimension="0"/>
+<par name="PreTransfRow" base_type="ctrl" dimension="0"/>
+<par name="PreTransfCol" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="NewTransfRow" base_type="ctrl" dimension="0"/>
+<par name="NewTransfCol" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<body>
+<l>* hom_mat2d_identity(homMat2D)</l>
+<l>* hom_mat2d_rotate (homMat2D, AngleNew-AnglePre, RowPre, ColumnPre, homMat2D)</l>
+<l>* hom_mat2d_translate (homMat2D, RowNew-RowPre, ColumnNew-ColumnPre, homMat2D)</l>
+<l>*affine_trans_point_2d (homMat2D, PreTransfRow, PreTransfCol, NewTransfRow, NewTransfCol)</l>
+<l>vector_angle_to_rigid (RowPre, ColumnPre, AnglePre, RowNew, ColumnNew, AngleNew, HomMat2D)</l>
+<l>affine_trans_pixel (HomMat2D, PreTransfRow, PreTransfCol, NewTransfRow, NewTransfCol)</l>
+<c></c>
+<l>return ()</l>
+</body>
+<docu id="m_follow_point_transf">
+<parameters>
+<parameter id="AngleNew">
+<default_type>real</default_type>
+<mixed_type>false</mixed_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="AnglePre">
+<default_type>real</default_type>
+<mixed_type>false</mixed_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="ColumnNew">
+<default_type>real</default_type>
+<mixed_type>false</mixed_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="ColumnPre">
+<default_type>real</default_type>
+<mixed_type>false</mixed_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="NewTransfCol">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="NewTransfRow">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="PreTransfCol">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="PreTransfRow">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="RowNew">
+<default_type>real</default_type>
+<mixed_type>false</mixed_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="RowPre">
+<default_type>real</default_type>
+<mixed_type>false</mixed_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

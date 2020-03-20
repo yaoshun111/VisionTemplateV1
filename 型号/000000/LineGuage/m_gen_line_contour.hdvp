@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<procedure name="m_gen_line_contour">
+<interface>
+<oo>
+<par name="Line" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="row1" base_type="ctrl" dimension="0"/>
+<par name="col1" base_type="ctrl" dimension="0"/>
+<par name="row2" base_type="ctrl" dimension="0"/>
+<par name="col2" base_type="ctrl" dimension="0"/>
+</ic>
+</interface>
+<body>
+<c></c>
+<l>gen_contour_polygon_xld (Line, [row1,row2], [col1,col2])</l>
+<l>dev_set_color ('blue')</l>
+<l>dev_display(Line)</l>
+<l>return ()</l>
+</body>
+<docu id="m_gen_line_contour">
+<parameters>
+<parameter id="Line">
+<sem_type>xld_cont</sem_type>
+</parameter>
+<parameter id="col1">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="col2">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="row1">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="row2">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<procedure name="draw_rake">
+<interface>
+<oo>
+<par name="Regions" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="WindowHandle" base_type="ctrl" dimension="0"/>
+<par name="Elements" base_type="ctrl" dimension="0"/>
+<par name="DetectHeight" base_type="ctrl" dimension="0"/>
+<par name="DetectWidth" base_type="ctrl" dimension="0"/>
+<par name="IfShow" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="Row1" base_type="ctrl" dimension="0"/>
+<par name="Column1" base_type="ctrl" dimension="0"/>
+<par name="Row2" base_type="ctrl" dimension="0"/>
+<par name="Column2" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<xb>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</xb>
+<docu id="draw_rake">
+<parameters>
+<parameter id="Column1">
+<default_type>real</default_type>
+<description lang="zh_CN">检测区域起点的x</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Column2">
+<default_type>real</default_type>
+<description lang="zh_CN">检测区域终点的x</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="DetectHeight">
+<default_value>60</default_value>
+<description lang="zh_CN">检测边缘的卡尺工具的高度</description>
+<sem_type>integer</sem_type>
+<values>
+<item>30</item>
+<item>60</item>
+<item>90</item>
+<item>120</item>
+</values>
+</parameter>
+<parameter id="DetectWidth">
+<default_value>15</default_value>
+<description lang="zh_CN">检测边缘的卡尺工具的宽度</description>
+<sem_type>integer</sem_type>
+<values>
+<item>5</item>
+<item>10</item>
+<item>15</item>
+<item>20</item>
+<item>25</item>
+<item>30</item>
+<item>40</item>
+</values>
+</parameter>
+<parameter id="Elements">
+<default_type>real</default_type>
+<default_value>30</default_value>
+<description lang="zh_CN">检测边缘数</description>
+<sem_type>integer</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+<values>
+<item>10</item>
+<item>20</item>
+<item>30</item>
+<item>50</item>
+<item>60</item>
+</values>
+</parameter>
+<parameter id="IfShow">
+<default_value>true</default_value>
+<sem_type>integer</sem_type>
+</parameter>
+<parameter id="Regions">
+<description lang="zh_CN">输出边缘点检测区域及检测方向</description>
+<sem_type>object</sem_type>
+</parameter>
+<parameter id="Row1">
+<default_type>real</default_type>
+<description lang="zh_CN">检测区域起点的y</description>
+<mixed_type>false</mixed_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Row2">
+<default_type>real</default_type>
+<description lang="zh_CN">检测区域终点的y</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="WindowHandle">
+<description lang="zh_CN">图形窗口句柄</description>
+<mixed_type>false</mixed_type>
+<sem_type>window</sem_type>
+<type_list>
+<item>integer</item>
+</type_list>
+</parameter>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

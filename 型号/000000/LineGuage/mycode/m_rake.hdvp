@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<procedure name="m_rake">
+<interface>
+<io>
+<par name="Image" base_type="iconic" dimension="0"/>
+</io>
+<oo>
+<par name="Regions" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="Elements" base_type="ctrl" dimension="0"/>
+<par name="DetectHeight" base_type="ctrl" dimension="0"/>
+<par name="DetectWidth" base_type="ctrl" dimension="0"/>
+<par name="Sigma" base_type="ctrl" dimension="0"/>
+<par name="Threshold" base_type="ctrl" dimension="0"/>
+<par name="Transition" base_type="ctrl" dimension="0"/>
+<par name="Select" base_type="ctrl" dimension="0"/>
+<par name="IfShow" base_type="ctrl" dimension="0"/>
+<par name="Row1" base_type="ctrl" dimension="0"/>
+<par name="Column1" base_type="ctrl" dimension="0"/>
+<par name="Row2" base_type="ctrl" dimension="0"/>
+<par name="Column2" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="ResultRow" base_type="ctrl" dimension="0"/>
+<par name="ResultColumn" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<xb>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</xb>
+<docu id="m_rake">
+<library lang="zh_CN">MVTec Standard Procedures</library>
+<parameters>
+<parameter id="Column1">
+<description lang="zh_CN">直线ROI起点的x值</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Column2">
+<description lang="zh_CN">直线ROI终点的x值</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="DetectHeight">
+<default_type>integer</default_type>
+<default_value>60</default_value>
+<description lang="zh_CN">卡尺工具的高度</description>
+<multivalue>false</multivalue>
+<sem_type>integer</sem_type>
+<type_list>
+<item>integer</item>
+</type_list>
+<values>
+<item>30</item>
+<item>60</item>
+<item>90</item>
+<item>120</item>
+</values>
+</parameter>
+<parameter id="DetectWidth">
+<default_type>integer</default_type>
+<default_value>15</default_value>
+<description lang="zh_CN">卡尺工具的宽度</description>
+<multivalue>false</multivalue>
+<sem_type>integer</sem_type>
+<type_list>
+<item>integer</item>
+</type_list>
+<values>
+<item>5</item>
+<item>10</item>
+<item>15</item>
+<item>20</item>
+<item>25</item>
+<item>30</item>
+</values>
+</parameter>
+<parameter id="Elements">
+<default_type>integer</default_type>
+<default_value>30</default_value>
+<description lang="zh_CN">检测边缘数</description>
+<multivalue>false</multivalue>
+<sem_type>number</sem_type>
+<type_list>
+<item>integer</item>
+</type_list>
+<value_list>
+<item>1</item>
+<item>5</item>
+<item>10</item>
+<item>20</item>
+<item>30</item>
+</value_list>
+<value_max>100000</value_max>
+<value_min>1</value_min>
+</parameter>
+<parameter id="IfShow">
+<sem_type>integer</sem_type>
+</parameter>
+<parameter id="Image">
+<description lang="zh_CN">输入图像</description>
+<sem_type>image</sem_type>
+<type_list>
+<item>byte</item>
+<item>int1</item>
+<item>int2</item>
+<item>uint2</item>
+<item>int4</item>
+<item>int8</item>
+<item>real</item>
+<item>cyclic</item>
+<item>direction</item>
+<item>complex</item>
+<item>vector_field</item>
+</type_list>
+</parameter>
+<parameter id="Regions">
+<description lang="zh_CN">输出边缘检测ROI及检测方向</description>
+<sem_type>object</sem_type>
+</parameter>
+<parameter id="ResultColumn">
+<default_type>real</default_type>
+<description lang="zh_CN">检测到的边缘的x坐标数组</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+<values>
+<item>ResultColumn</item>
+</values>
+</parameter>
+<parameter id="ResultRow">
+<description lang="zh_CN">检测到的边缘的y坐标数组</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+<item>string</item>
+</type_list>
+<values>
+<item>ResultRow</item>
+</values>
+</parameter>
+<parameter id="Row1">
+<description lang="zh_CN">直线ROI起点的y值</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Row2">
+<description lang="zh_CN">直线ROI终点的y值</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Select">
+<default_type>string</default_type>
+<default_value>'max'</default_value>
+<description lang="zh_CN">first表示选择第一点
+last表示选择最后一点
+max表示选择边缘幅度最强点</description>
+<sem_type>string</sem_type>
+<type_list>
+<item>string</item>
+</type_list>
+<values>
+<item>'first'</item>
+<item>'last'</item>
+<item>'max'</item>
+</values>
+</parameter>
+<parameter id="Sigma">
+<default_type>real</default_type>
+<default_value>1</default_value>
+<description lang="zh_CN">高斯滤波因子</description>
+<multivalue>false</multivalue>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+<values>
+<item>0.5</item>
+<item>1</item>
+<item>1.5</item>
+<item>2</item>
+<item>2.5</item>
+<item>3</item>
+</values>
+</parameter>
+<parameter id="Threshold">
+<default_value>20</default_value>
+<description lang="zh_CN">边缘幅度阈值</description>
+<multivalue>false</multivalue>
+<sem_type>real</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+<values>
+<item>5</item>
+<item>10</item>
+<item>15</item>
+<item>20</item>
+<item>25</item>
+<item>30</item>
+<item>40</item>
+</values>
+</parameter>
+<parameter id="Transition">
+<default_type>string</default_type>
+<default_value>'all'</default_value>
+<description lang="zh_CN">极性：
+positive表示由黑到白
+negative表示由白到黑
+all表示以上两种方向</description>
+<multivalue>false</multivalue>
+<sem_type>string</sem_type>
+<type_list>
+<item>string</item>
+</type_list>
+<values>
+<item>'positive'</item>
+<item>'negative'</item>
+<item>'all'</item>
+</values>
+</parameter>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

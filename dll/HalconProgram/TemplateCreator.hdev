@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<hdevelop file_version="1.2" halcon_version="18.11.0.0">
 <procedure name="main">
 <interface/>
 <body>
@@ -61,13 +61,16 @@
 <l>    wait_seconds(0.01)</l>
 <l>    if(StartDrawTemplate)</l>
 <l>        StartDraw:=false</l>
-<l>        dev_set_color ('red')</l>
+<l>*         dev_set_color ('red')</l>
+<l>          set_color (WindowHandle, 'green')</l>
 <l>        set_display_font(WindowHandle, 15, 'mono', 'true', 'false')</l>
 <l>         dev_display(ContempPic)</l>
 <l>        dev_disp_text('请画特征模板', 'window', 'top', 'left', 'black', [], [])</l>
-<l>        dev_set_color ('blue')</l>
+<l>*         dev_set_color ('blue')</l>
+<l>          set_color (WindowHandle, 'green')</l>
 <l>        draw_rectangle2 (WindowHandle, Row, Column, Phi, Length1, Length2)</l>
-<l>        dev_set_color ('green')</l>
+<l>*         dev_set_color ('green')</l>
+<l>          set_color (WindowHandle, 'green')</l>
 <l>        gen_rectangle2(Rectangle, Row, Column, Phi, Length1, Length2)</l>
 <l>        dev_display(Rectangle)</l>
 <l>        reduce_domain (ContempPic, Rectangle, Template)</l>
@@ -82,13 +85,14 @@
 <l>    endif</l>
 <l>     if(StartDrawLine)</l>
 <l>        StartDrawLine:=false</l>
-<l>        dev_set_color ('red')</l>
+<l>        set_color (WindowHandle, 'white')</l>
 <l>        set_display_font(WindowHandle, 15, 'mono', 'true', 'false')</l>
 <l>         dev_display(ContempPic)</l>
 <l>        dev_disp_text('请画直线测量工具', 'window', 'top', 'left', 'black', [], [])</l>
-<l>        dev_set_color ('blue')</l>
+<l>*         dev_set_color ('blue')</l>
+<c>        </c>
 <l>        draw_line (WindowHandle, Row1, Column1, Row2, Column2)</l>
-<l>        dev_set_color ('green')</l>
+<l>*         dev_set_color ('green')</l>
 <l>        m_gen_line_contour(Line,Row1, Column1, Row2, Column2)</l>
 <l>        m_rake(ContempPic, Regions,LineGuagePointNum, LineGuageHeight, LineGuageWidth, 1, LineGuageThreshold, LineGuageTransition, 'max', true, Row1, Column1, Row2, Column2, Rowret, Columnret)</l>
 <l>        m_pts_to_best_line(Line1, Rowret, Columnret, 10, 8, Row11, Column11, Row12, Column12)</l>
@@ -97,13 +101,15 @@
 <l>    endif</l>
 <l>     if(StartDrawCircle)</l>
 <l>        StartDrawCircle:=false</l>
-<l>        dev_set_color ('red')</l>
+<l>          set_color (WindowHandle, 'white')</l>
 <l>        set_display_font(WindowHandle, 15, 'mono', 'true', 'false')</l>
 <l>         dev_display(ContempPic)</l>
 <l>        dev_disp_text('请画圆形测量工具', 'window', 'top', 'left', 'black', [], [])</l>
-<l>        dev_set_color ('blue')</l>
+<c>       </c>
+<l>          set_color (WindowHandle, 'blue')</l>
 <l>        draw_circle (WindowHandle, Row3, Column3, Radius)</l>
-<l>        dev_set_color ('green')</l>
+<c>    </c>
+<l>          set_color (WindowHandle, 'green')</l>
 <l>        gen_circle_contour_xld (Circle, Row3, Column3, Radius, 0, 3.1415926*2, 'positive', 1)</l>
 <l>        write_contour_xld_dxf (Circle, CircleSavePath)</l>
 <l>        dev_display(Circle)</l>

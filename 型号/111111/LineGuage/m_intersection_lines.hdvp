@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<procedure name="m_intersection_lines">
+<interface>
+<io>
+<par name="Line1" base_type="iconic" dimension="0"/>
+<par name="Line2" base_type="iconic" dimension="0"/>
+</io>
+<oc>
+<par name="Point_row" base_type="ctrl" dimension="0"/>
+<par name="Point_col" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<xb>5F4XUzwI85jvVuAmFf0v6T5in3WsVMRtHGXRVQyUG7+3lA3ALcMbQlaQ8QYiNBvk2QBNdfWx6fTBdrGO42CNe/YhkLqhSmYZiVLZTqc96h3LP1pk4FgsyVwebn16qFFqdzeL1tToTsZcqKSe6JP9ZWVaC03eOTf6Xd4FEW2DtaJYkfmSO9FX8OqY41cyA1zyXoEcEp8/ABYYwGKefmZIobL3Zy5I36bCnMHPJta3bmDAP0ZfQVd/CJKvHt/ToBeXYT76npMDL+kiVQRVwCHnxM/CLU9t6LVSlfyAePgGoydlnHgcgdx8lacd0aURaROZOBA3+IxdxwXLOj4e+xbJcZWXwmwrrYUsdjAAAkH6zDbPrh7GtaJime3TyzG/q3AE/0KaR4BcqDxO5oB2+xWjeJJnn5C7mL5Gf8MpAD2DevtFgOKr2k6Pded7Zomwk5ZfkwsVKNrduNHHlz2ggV+ZEbKKv3AXjRXjAupyExppL5zUrY1E2oy9czqnSBTzovV4h9nlxXkL54vsF3OM8CG6I9KaoVmMUqXxheTYobGbrB0jF2PHa5ggm1gmHHQPZ0WrezEPs4FXcHs8nYqSoJgchnQTe+1eechcEHDQLWmZR8K2EAB/DZVQYqZuBHpceppJYWof1A0r/c/rU5eILEaG27DcL1jLAwi0GfO9mfaQL7KAuv8tZ/4Cu/ICidWpAhs1tihu7fCVrf53gnGnCd3lzEutmLBIW4y3MmBq6LKAey+DbE8I/dbjuNT5v7fVZkz3XL6Oc4E/7WJeEExAB5AzabdF1PKRGbh+ooN2HSFUiZOBS5wBvkghRNH7TgxopthZ81HiFOpfp0TdVIM3PwcTbMxqLliRdPLMFhosYOw3VM+nhCmkH9PT6j/nEbk8vs6w5CUcwNkGqlh9veDoXKpDd7UPhSG1LMqDamZaTMYrISKmSDB7mTE7+pRxWx6SgSzXOCsDcVflsouehhoibWGDGaM6zENt7RmtIovaGtd1Brgbcu1tIxzdXwCSRBf7peysJvScwn4dm08xYknJLAsQvigN3ViD8yv3L6cQUfxmoIj/I2AoDG9pOuoy7aivcqGDGECJw8Mfqe/hXWlofatXQ5t8DjkPFJMtuq+VP8BL0b6xSsiQ8TQMo6h4bD9ol/siPouqGLeBza1pbIXTgADqGjNddFLZg0pUAnAjcnZssv0LrkFTLydCXhB7AMvefkBaN2H2e7mTJqohFLaEnSWhkwGJBVOQ9HtP3sL9oC+p2ZqHISs0KcD2L4DqcDVruLU9yHHXzXNFCNc1jUz+p+dZOFgvlaNi3pEpe3noIqDU4apJZxnudZZSIyWtvYswFtsQcXOXr9nW9nZfy4s5vCtKCbM9SrccuWMfxzSrJFW/T30eIcwR4xozGQGnkgeH6G2Q</xb>
+<docu id="m_intersection_lines">
+<parameters>
+<parameter id="Line1">
+<sem_type>xld_cont</sem_type>
+</parameter>
+<parameter id="Line2">
+<sem_type>xld_cont</sem_type>
+</parameter>
+<parameter id="Point_col">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Point_row">
+<default_type>real</default_type>
+<sem_type>real</sem_type>
+<type_list>
+<item>real</item>
+</type_list>
+</parameter>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

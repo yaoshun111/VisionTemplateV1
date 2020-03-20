@@ -524,19 +524,19 @@ namespace UIform
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form form = new Form();
-            form.Controls.Add(Global.templateCreator);
-            form.Show();
-        }
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    Form form = new Form();
+        //    form.Controls.Add(Global.templateCreator);
+        //    form.Show();
+        //}
       
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Form form = new Form();
-            form.Controls.Add(Global.camera);
-            form.Show();
-        }
+        //private void button4_Click(object sender, EventArgs e)
+        //{
+        //    Form form = new Form();
+        //    form.Controls.Add(Global.camera);
+        //    form.Show();
+        //}
     }
 }

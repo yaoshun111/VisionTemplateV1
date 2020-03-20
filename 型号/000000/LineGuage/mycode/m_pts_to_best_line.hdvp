@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="19.05.0.0">
+<procedure name="m_pts_to_best_line">
+<interface>
+<oo>
+<par name="Line" base_type="iconic" dimension="0"/>
+</oo>
+<ic>
+<par name="Rows" base_type="ctrl" dimension="0"/>
+<par name="Cols" base_type="ctrl" dimension="0"/>
+<par name="ActiveNum" base_type="ctrl" dimension="0"/>
+<par name="IgnoreNum" base_type="ctrl" dimension="0"/>
+</ic>
+<oc>
+<par name="Row1" base_type="ctrl" dimension="0"/>
+<par name="Column1" base_type="ctrl" dimension="0"/>
+<par name="Row2" base_type="ctrl" dimension="0"/>
+<par name="Column2" base_type="ctrl" dimension="0"/>
+</oc>
+</interface>
+<xb>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</xb>
+<docu id="m_pts_to_best_line">
+<parameters>
+<parameter id="ActiveNum">
+<default_value>2</default_value>
+<description lang="zh_CN">最小有效点数</description>
+<sem_type>any</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Cols">
+<description lang="zh_CN">拟合直线的输入x数组</description>
+<sem_type>real</sem_type>
+</parameter>
+<parameter id="Column1">
+<description lang="zh_CN">拟合的直线起点x值</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Column2">
+<description lang="zh_CN">拟合的直线终点x值</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="IgnoreNum">
+<default_type>integer</default_type>
+<default_value>5</default_value>
+<description lang="zh_CN">忽略的点数量</description>
+<mixed_type>false</mixed_type>
+<multivalue>false</multivalue>
+<sem_type>integer</sem_type>
+<type_list>
+<item>integer</item>
+</type_list>
+<value_max>100</value_max>
+<value_min>0</value_min>
+<values>
+<item>5</item>
+</values>
+</parameter>
+<parameter id="Line">
+<description lang="zh_CN">输出拟合直线的xld</description>
+<sem_type>xld_cont</sem_type>
+</parameter>
+<parameter id="Row1">
+<description lang="zh_CN">拟合的直线起点y值</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Row2">
+<description lang="zh_CN">拟合的直线终点y值</description>
+<sem_type>real</sem_type>
+<type_list>
+<item>integer</item>
+<item>real</item>
+</type_list>
+</parameter>
+<parameter id="Rows">
+<description lang="zh_CN">拟合直线的输入y数组</description>
+<sem_type>real</sem_type>
+</parameter>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

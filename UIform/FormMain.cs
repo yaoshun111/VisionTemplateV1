@@ -11,15 +11,16 @@ using System.Threading;
 using HalconDotNet;
 using System.IO;
 using Timer = System.Windows.Forms.Timer;
+using INIAPI;
+
 
 namespace UIform
 {
     public delegate void SendMsgDelegate(HTuple hv_msg);
 
     public partial class FormMain : Form
-
     {
-        
+
         /// <summary>
         /// 正在自动运行标志位
         /// </summary>
@@ -35,6 +36,12 @@ namespace UIform
         /// </summary>
         public bool m_bCamOpenOK = false;
 
+
+        /// <summary>
+        /// 配置文件中读取的常用型号
+        /// </summary>
+        public string m_sLiaoHao = string.Empty;
+
         StartControl.Welcom wel = new StartControl.Welcom();
 
 
@@ -46,7 +53,7 @@ namespace UIform
             Global g = new Global();
             OpacyTimer.Tick += new EventHandler(OpacyTimer_Tick);
             OpacyTimer.Interval = 20;
-          
+
             Opacity = 0;
             InitializeComponent();
             OpacyTimer.Start();
@@ -72,13 +79,21 @@ namespace UIform
             splitContainer2.Panel2.Controls.Add(Global.loghelper);//添加日志窗口到窗体
             newPanel1.Show(Global.mainform);//显示主界面
 
+            Thread.Sleep(1900);
+            wel.Stop();
 
+            #region 加载型号，得到当前常型号。
 
-            //Thread.Sleep(1900);
-            
+            m_sLiaoHao = IniAPI.INIGetStringValue(Global.m_sConfigPath + "\\System.ini", "SYSTEM", "常用料号", "");
 
-            #region 加载料号，得到当前常用料号。
+            if (m_sLiaoHao!=string.Empty)
+            {
+                label3.Text = m_sLiaoHao;
+            }
+            else
+            {
 
+            }
             #endregion
 
             #region  打开相机，得到hv_AcqHandle。

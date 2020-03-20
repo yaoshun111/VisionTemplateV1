@@ -153,6 +153,10 @@
             // transCom
             // 
             this.transCom.FormattingEnabled = true;
+            this.transCom.Items.AddRange(new object[] {
+            "positive",
+            "negative",
+            "all"});
             this.transCom.Location = new System.Drawing.Point(89, 158);
             this.transCom.Name = "transCom";
             this.transCom.Size = new System.Drawing.Size(100, 20);

@@ -14,8 +14,6 @@ namespace UIform
     public partial class 权限获取 : Form
     {
         
-
-
         public 权限获取()
         {
             InitializeComponent();

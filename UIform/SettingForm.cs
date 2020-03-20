@@ -14,6 +14,7 @@ using HalconTest;
 
 namespace UIform
 {
+
     public partial class SettingForm : Form
     {
 
@@ -480,6 +481,7 @@ namespace UIform
         {
             try
             {
+
                 #region 根据窗体原有尺寸进行对应比例缩放
 
                 int iFormWidth = this.Width;

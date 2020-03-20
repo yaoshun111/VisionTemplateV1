@@ -272,7 +272,7 @@ namespace UIform
                             control.Controls[i].Height = (int)(iHeight * HRatio);
                             control.Controls[i].Left = (int)(iLeft * WRatio);
                             control.Controls[i].Top = (int)(iTop * HRatio);
-                            control.Controls[i].Font = new System.Drawing.Font("宋体", (float)(fSize * (WRatio + HRatio) / 2));
+                            // control.Controls[i].Font = new System.Drawing.Font("宋体", (float)(fSize * (WRatio + HRatio) / 2));
                             ListControl(control.Controls[i], Index, WRatio, HRatio);
 
                             break;

@@ -61,16 +61,16 @@
 <l>    wait_seconds(0.01)</l>
 <l>    if(StartDrawTemplate)</l>
 <l>        StartDraw:=false</l>
-<l>*         dev_set_color ('red')</l>
-<l>          set_color (WindowHandle, 'green')</l>
+<c>        </c>
+<l>        set_color (WindowHandle, 'red')</l>
 <l>        set_display_font(WindowHandle, 15, 'mono', 'true', 'false')</l>
-<l>         dev_display(ContempPic)</l>
+<l>        dev_display(ContempPic)</l>
 <l>        dev_disp_text('请画特征模板', 'window', 'top', 'left', 'black', [], [])</l>
-<l>*         dev_set_color ('blue')</l>
-<l>          set_color (WindowHandle, 'green')</l>
+<c>        </c>
+<l>        set_color (WindowHandle, 'blue')</l>
 <l>        draw_rectangle2 (WindowHandle, Row, Column, Phi, Length1, Length2)</l>
-<l>*         dev_set_color ('green')</l>
-<l>          set_color (WindowHandle, 'green')</l>
+<c>        </c>
+<l>        set_color (WindowHandle, 'green')</l>
 <l>        gen_rectangle2(Rectangle, Row, Column, Phi, Length1, Length2)</l>
 <l>        dev_display(Rectangle)</l>
 <l>        reduce_domain (ContempPic, Rectangle, Template)</l>
@@ -83,33 +83,34 @@
 <c>        </c>
 <l>        break</l>
 <l>    endif</l>
-<l>     if(StartDrawLine)</l>
+<l>    if(StartDrawLine)</l>
 <l>        StartDrawLine:=false</l>
 <l>        set_color (WindowHandle, 'white')</l>
 <l>        set_display_font(WindowHandle, 15, 'mono', 'true', 'false')</l>
-<l>         dev_display(ContempPic)</l>
+<l>        dev_display(ContempPic)</l>
 <l>        dev_disp_text('请画直线测量工具', 'window', 'top', 'left', 'black', [], [])</l>
-<l>*         dev_set_color ('blue')</l>
 <c>        </c>
+<l>        set_color (WindowHandle, 'blue')</l>
 <l>        draw_line (WindowHandle, Row1, Column1, Row2, Column2)</l>
-<l>*         dev_set_color ('green')</l>
-<l>        m_gen_line_contour(Line,Row1, Column1, Row2, Column2)</l>
-<l>        m_rake(ContempPic, Regions,LineGuagePointNum, LineGuageHeight, LineGuageWidth, 1, LineGuageThreshold, LineGuageTransition, 'max', true, Row1, Column1, Row2, Column2, Rowret, Columnret)</l>
-<l>        m_pts_to_best_line(Line1, Rowret, Columnret, 10, 8, Row11, Column11, Row12, Column12)</l>
+<c>        </c>
+<l>        set_color (WindowHandle, 'green')</l>
+<l>        m_gen_line_contour(Line,WindowHandle,Row1, Column1, Row2, Column2)</l>
+<l>        m_rake(ContempPic, Regions,WindowHandle,LineGuagePointNum, LineGuageHeight, LineGuageWidth, 1, LineGuageThreshold, LineGuageTransition, 'max', true, Row1, Column1, Row2, Column2, Rowret, Columnret)</l>
+<l>        m_pts_to_best_line(Line1,WindowHandle, Rowret, Columnret, 10, 8, Row11, Column11, Row12, Column12)</l>
 <l>        write_contour_xld_dxf (Line, LineSavePath)</l>
 <l>        dev_display(Line)</l>
 <l>    endif</l>
-<l>     if(StartDrawCircle)</l>
+<l>    if(StartDrawCircle)</l>
 <l>        StartDrawCircle:=false</l>
-<l>          set_color (WindowHandle, 'white')</l>
+<l>        set_color (WindowHandle, 'white')</l>
 <l>        set_display_font(WindowHandle, 15, 'mono', 'true', 'false')</l>
-<l>         dev_display(ContempPic)</l>
+<l>        dev_display(ContempPic)</l>
 <l>        dev_disp_text('请画圆形测量工具', 'window', 'top', 'left', 'black', [], [])</l>
-<c>       </c>
-<l>          set_color (WindowHandle, 'blue')</l>
+<c>        </c>
+<l>        set_color (WindowHandle, 'blue')</l>
 <l>        draw_circle (WindowHandle, Row3, Column3, Radius)</l>
-<c>    </c>
-<l>          set_color (WindowHandle, 'green')</l>
+<c>        </c>
+<l>        set_color (WindowHandle, 'green')</l>
 <l>        gen_circle_contour_xld (Circle, Row3, Column3, Radius, 0, 3.1415926*2, 'positive', 1)</l>
 <l>        write_contour_xld_dxf (Circle, CircleSavePath)</l>
 <l>        dev_display(Circle)</l>

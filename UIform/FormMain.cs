@@ -92,7 +92,7 @@ namespace UIform
             splitContainer2.Panel2.Controls.Add(Global.loghelper);//添加日志窗口到窗体
             newPanel1.Show(Global.mainform);//显示主界面
 
-            Thread.Sleep(1900);
+            Thread.Sleep(900);
             wel.Stop();
 
             #region 加载型号，得到当前常型号，然后读取对应的曝光和增益，读取当前型号的产量信息。

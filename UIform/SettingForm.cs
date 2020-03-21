@@ -20,13 +20,6 @@ namespace UIform
 
         HObject hObject = new HObject();
 
-
-
-
-
-
-
-
         HObject ho_Image;
         HTuple hv_hWindowHandle;
 
@@ -481,7 +474,6 @@ namespace UIform
         {
             try
             {
-
                 #region 根据窗体原有尺寸进行对应比例缩放
 
                 int iFormWidth = this.Width;
@@ -495,7 +487,7 @@ namespace UIform
 
                 #endregion
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("CHalconTemplate_SizeChanged:" + ex.Message);
             }
@@ -518,6 +510,8 @@ namespace UIform
 
 
         }
+
+    
 
         private void cameraParamSetPage1_Load(object sender, EventArgs e)
         {

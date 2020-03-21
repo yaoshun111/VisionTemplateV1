@@ -31,8 +31,7 @@ namespace UIform
         /// </summary>
         public bool m_bInspectResult = false;
 
-        //public bool m_bCamOpenOk { get; set; }
-
+      
         private int m_iOriFormWidth = 0, m_iOriFormHeight = 0;
 
         HTuple hv_hWindowHandle;

@@ -41,7 +41,6 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.newPanel1 = new FastCtr.NewPanel(this.components);
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -51,6 +50,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.Btn_ResultColor = new System.Windows.Forms.Button();
+            this.Btn_ClearPassRate = new System.Windows.Forms.Button();
+            this.Btn_ClearNG = new System.Windows.Forms.Button();
+            this.Btn_ClearOK = new System.Windows.Forms.Button();
+            this.Btn_ClearTotal = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.tb_PassRate = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -248,13 +251,16 @@
             // 
             this.splitContainer3.Panel1.AutoScroll = true;
             this.splitContainer3.Panel1.BackColor = System.Drawing.Color.Silver;
-            this.splitContainer3.Panel1.Controls.Add(this.panel2);
             this.splitContainer3.Panel1.Controls.Add(this.tableLayoutPanel3);
             this.splitContainer3.Panel1.Controls.Add(this.Btn_ResultColor);
             // 
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.splitContainer3.Panel2.Controls.Add(this.Btn_ClearPassRate);
+            this.splitContainer3.Panel2.Controls.Add(this.Btn_ClearNG);
+            this.splitContainer3.Panel2.Controls.Add(this.Btn_ClearOK);
+            this.splitContainer3.Panel2.Controls.Add(this.Btn_ClearTotal);
             this.splitContainer3.Panel2.Controls.Add(this.label8);
             this.splitContainer3.Panel2.Controls.Add(this.tb_PassRate);
             this.splitContainer3.Panel2.Controls.Add(this.label7);
@@ -271,16 +277,6 @@
             this.splitContainer3.SplitterDistance = 300;
             this.splitContainer3.SplitterWidth = 1;
             this.splitContainer3.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Location = new System.Drawing.Point(148, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(140, 82);
-            this.panel2.TabIndex = 3;
             // 
             // tableLayoutPanel3
             // 
@@ -410,12 +406,56 @@
             this.Btn_ResultColor.FlatAppearance.BorderColor = System.Drawing.Color.LightBlue;
             this.Btn_ResultColor.FlatAppearance.BorderSize = 0;
             this.Btn_ResultColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_ResultColor.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_ResultColor.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Btn_ResultColor.Location = new System.Drawing.Point(1, 0);
             this.Btn_ResultColor.Name = "Btn_ResultColor";
-            this.Btn_ResultColor.Size = new System.Drawing.Size(144, 82);
+            this.Btn_ResultColor.Size = new System.Drawing.Size(291, 82);
             this.Btn_ResultColor.TabIndex = 2;
             this.Btn_ResultColor.UseVisualStyleBackColor = false;
+            // 
+            // Btn_ClearPassRate
+            // 
+            this.Btn_ClearPassRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_ClearPassRate.Location = new System.Drawing.Point(193, 184);
+            this.Btn_ClearPassRate.Name = "Btn_ClearPassRate";
+            this.Btn_ClearPassRate.Size = new System.Drawing.Size(77, 26);
+            this.Btn_ClearPassRate.TabIndex = 70;
+            this.Btn_ClearPassRate.Text = "清零";
+            this.Btn_ClearPassRate.UseVisualStyleBackColor = true;
+            this.Btn_ClearPassRate.Click += new System.EventHandler(this.Btn_ClearPassRate_Click);
+            // 
+            // Btn_ClearNG
+            // 
+            this.Btn_ClearNG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_ClearNG.Location = new System.Drawing.Point(193, 145);
+            this.Btn_ClearNG.Name = "Btn_ClearNG";
+            this.Btn_ClearNG.Size = new System.Drawing.Size(77, 26);
+            this.Btn_ClearNG.TabIndex = 69;
+            this.Btn_ClearNG.Text = "清零";
+            this.Btn_ClearNG.UseVisualStyleBackColor = true;
+            this.Btn_ClearNG.Click += new System.EventHandler(this.Btn_ClearNG_Click);
+            // 
+            // Btn_ClearOK
+            // 
+            this.Btn_ClearOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_ClearOK.Location = new System.Drawing.Point(193, 101);
+            this.Btn_ClearOK.Name = "Btn_ClearOK";
+            this.Btn_ClearOK.Size = new System.Drawing.Size(77, 26);
+            this.Btn_ClearOK.TabIndex = 68;
+            this.Btn_ClearOK.Text = "清零";
+            this.Btn_ClearOK.UseVisualStyleBackColor = true;
+            this.Btn_ClearOK.Click += new System.EventHandler(this.Btn_ClearOK_Click);
+            // 
+            // Btn_ClearTotal
+            // 
+            this.Btn_ClearTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_ClearTotal.Location = new System.Drawing.Point(193, 59);
+            this.Btn_ClearTotal.Name = "Btn_ClearTotal";
+            this.Btn_ClearTotal.Size = new System.Drawing.Size(77, 26);
+            this.Btn_ClearTotal.TabIndex = 67;
+            this.Btn_ClearTotal.Text = "清零";
+            this.Btn_ClearTotal.UseVisualStyleBackColor = true;
+            this.Btn_ClearTotal.Click += new System.EventHandler(this.Btn_ClearTotal_Click);
             // 
             // label8
             // 
@@ -796,7 +836,6 @@
         private System.Windows.Forms.Panel panel1;
         private FastCtr.NewPanel newPanel1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_PassRate;
         private System.Windows.Forms.Label label7;
@@ -805,6 +844,10 @@
         private System.Windows.Forms.TextBox tb_OKCount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_TotalCount;
+        private System.Windows.Forms.Button Btn_ClearPassRate;
+        private System.Windows.Forms.Button Btn_ClearNG;
+        private System.Windows.Forms.Button Btn_ClearOK;
+        private System.Windows.Forms.Button Btn_ClearTotal;
     }
 }
 

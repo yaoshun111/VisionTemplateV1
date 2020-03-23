@@ -35,10 +35,6 @@ namespace UIform
         public static DataForm dataForm = new DataForm();
         public static NewLogHelper loghelper = new NewLogHelper();
 
-        
-      
-
-
     }
 }
 

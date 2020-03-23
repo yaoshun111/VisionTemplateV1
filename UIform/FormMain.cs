@@ -62,7 +62,7 @@ namespace UIform
             wel.Start();
             Global g = new Global();
             this.TopMost = true;
-          
+
             OpacyTimer.Tick += new EventHandler(OpacyTimer_Tick);
             OpacyTimer.Interval = 20;
 
@@ -336,7 +336,47 @@ namespace UIform
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            System.Environment.Exit(0);
+        }
 
+        private void Btn_ClearTotal_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("确认要清零总产量吗？", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                tb_TotalCount.Text = "0";
+                CommonClass.m_TotalCount = 0;
+            }
+        }
+
+        private void Btn_ClearOK_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("确认要清零OK产量吗？", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                tb_OKCount.Text = "0";
+                CommonClass.m_OKCount = 0;
+            }
+        }
+
+        private void Btn_ClearNG_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("确认要清零NG产量吗？", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                tb_NGCount.Text = "0";
+                CommonClass.m_NGCount = 0;
+            }
+        }
+
+        private void Btn_ClearPassRate_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("确认要清零合格率吗？", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                tb_PassRate.Text = "0";
+
+            }
         }
     }
 }

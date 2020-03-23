@@ -102,7 +102,7 @@ namespace UIform
             #endregion
         }
 
-
+        HTuple result = new HTuple();
         public void Fun_AutoRun()
         {
             while (true)
@@ -132,8 +132,8 @@ namespace UIform
                     #endregion
 
                     #region 向UI界面发送处理结果
-                    HTuple result = new HTuple();
 
+                    result = new HTuple();
                     CommonClass.m_TotalCount++;
 
                     result[1] = CommonClass.m_TotalCount;
